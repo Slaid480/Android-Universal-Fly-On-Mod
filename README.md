@@ -1,4 +1,4 @@
-Android-Universtal-Fly-On-Mod
+Android-Universal-Fly-On-Mod
 =============================
 
 Fly-On is a package of scripts and tweaks aimed to provide a smoother Android experience.

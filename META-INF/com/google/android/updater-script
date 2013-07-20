@@ -1,7 +1,7 @@
 ui_print("**********************************************************");
-ui_print("Fly-On MOD™ by Slaid480@XDA 2013 For All Android devices!!");
+ui_print("Fly-On MODï¿½ by Slaid480@XDA 2013 For All Android devices!!");
 ui_print("**********************************************************");
-ui_print("Update Version 4.0 Alpha6,date:17/07/2013");
+ui_print("Version 4+");
 ui_print("ICS and JB version");
 ui_print("Mounting /system /data and /cache");
 run_program("/sbin/mount", "/system");
