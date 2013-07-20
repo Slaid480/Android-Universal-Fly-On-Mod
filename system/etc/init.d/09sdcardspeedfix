@@ -1,0 +1,61 @@
+#!/system/bin/sh
+#
+#Fly-On Mod™ SDCard speed fixer by Slaid480
+
+
+READ_AHEAD_KB="2048"
+
+if [ -e /sys/devices/virtual/bdi/0:18/read_ahead_kb ]; then
+    echo $READ_AHEAD_KB > /sys/devices/virtual/bdi/0:18/read_ahead_kb
+    echo "SD card read ahead kb SET to $READ_AHEAD_KB"
+fi
+
+if [ -e /sys/devices/virtual/bdi/179:0/read_ahead_kb ]; then
+    echo $READ_AHEAD_KB > /sys/devices/virtual/bdi/179:0/read_ahead_kb
+    echo "SD card read ahead kb SET to $READ_AHEAD_KB"
+fi
+
+if [ -e /sys/devices/virtual/bdi/7:0/read_ahead_kb ]; then
+    echo $READ_AHEAD_KB > /sys/devices/virtual/bdi/7:0/read_ahead_kb
+    echo "SD card read ahead kb SET to $READ_AHEAD_KB"
+fi
+
+if [ -e /sys/devices/virtual/bdi/7:1/read_ahead_kb ]; then
+    echo $READ_AHEAD_KB > /sys/devices/virtual/bdi/7:1/read_ahead_kb
+    echo "SD card read ahead kb SET to $READ_AHEAD_KB"
+fi
+
+if [ -e /sys/devices/virtual/bdi/7:2/read_ahead_kb ]; then
+    echo $READ_AHEAD_KB > /sys/devices/virtual/bdi/7:2/read_ahead_kb
+    echo "SD card read ahead kb SET to $READ_AHEAD_KB"
+fi
+
+if [ -e /sys/devices/virtual/bdi/7:3/read_ahead_kb ]; then
+    echo $READ_AHEAD_KB > /sys/devices/virtual/bdi/7:3/read_ahead_kb
+    echo "SD card read ahead kb SET to $READ_AHEAD_KB"
+fi
+
+if [ -e /sys/devices/virtual/bdi/7:4/read_ahead_kb ]; then
+    echo $READ_AHEAD_KB > /sys/devices/virtual/bdi/7:4/read_ahead_kb
+    echo "SD card read ahead kb SET to $READ_AHEAD_KB"
+fi
+
+if [ -e /sys/devices/virtual/bdi/7:5/read_ahead_kb ]; then
+    echo $READ_AHEAD_KB > /sys/devices/virtual/bdi/7:5/read_ahead_kb
+    echo "SD card read ahead kb SET to $READ_AHEAD_KB"
+fi
+
+if [ -e /sys/devices/virtual/bdi/7:6/read_ahead_kb ]; then
+    echo $READ_AHEAD_KB > /sys/devices/virtual/bdi/7:6/read_ahead_kb
+    echo "SD card read ahead kb SET to $READ_AHEAD_KB"
+fi
+
+if [ -e /sys/devices/virtual/bdi/7:7/read_ahead_kb ]; then
+    echo $READ_AHEAD_KB > /sys/devices/virtual/bdi/7:7/read_ahead_kb
+    echo "SD card read ahead kb SET to $READ_AHEAD_KB"
+fi
+
+if [ -e /sys/devices/virtual/bdi/default/read_ahead_kb ]; then
+    echo $READ_AHEAD_KB > /sys/devices/virtual/bdi/default/read_ahead_kb
+    echo "SD card read ahead kb SET to $READ_AHEAD_KB"
+fi

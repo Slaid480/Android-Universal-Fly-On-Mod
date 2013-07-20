@@ -1,0 +1,49 @@
+#!/system/bin/sh
+#script by Pikachu01 and improved by Slaid480 for Fly-On Mod™ !
+#Optimize SQlite databases of apps
+
+#Interval between Optimize SQlite runs, in seconds, 172800=48 hours
+RUN_EVERY=172800
+
+
+# echo "";
+echo "*********************************************";
+echo "Optimizing and defragging your database files (*.db)";
+echo "Ignore the 'database disk image is malformed' error";
+echo "Ignore the 'no such collation sequence' error";
+echo "*********************************************";
+echo "";
+
+for i in \
+`busybox find /data -iname "*.db"`;
+do \
+  /system/xbin/sqlite3 $i 'VACUUM;';
+  /system/xbin/sqlite3 $i 'REINDEX;';
+done;
+
+if [ -d "/dbdata" ]; then
+  for i in \
+  `busybox find /dbdata -iname "*.db"`;
+  do \
+    /system/xbin/sqlite3 $i 'VACUUM;';
+    /system/xbin/sqlite3 $i 'REINDEX;';
+  done;
+fi;
+
+
+if [ -d "/datadata" ]; then
+  for i in \
+  `busybox find /datadata -iname "*.db"`;
+  do \
+    /system/xbin/sqlite3 $i 'VACUUM;';
+    /system/xbin/sqlite3 $i 'REINDEX;';
+  done;
+fi;
+
+
+for i in \
+`busybox find /sdcard -iname "*.db"`;
+do \
+  /system/xbin/sqlite3 $i 'VACUUM;';
+  /system/xbin/sqlite3 $i 'REINDEX;';
+done;

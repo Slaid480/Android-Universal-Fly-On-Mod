@@ -1,0 +1,109 @@
+#!/system/bin/sh
+# ===========================================
+# ===========================================
+# ========== Fly_engine | Fly-On Mod™ =======
+# ========== By Slaid480@XDA 2013 ===========
+# ===========================================
+# ===========================================
+
+
+
+#VFS,VM,Kernel Tweaks#
+
+#VM Tweaks
+echo 3 > /proc/sys/vm/page-cluster;
+echo 3000 > /proc/sys/vm/dirty_expire_centisecs;
+echo 500 > /proc/sys/vm/dirty_writeback_centisecs;
+echo "5120" > /proc/sys/vm/min_free_kbytes;
+echo "0" > /proc/sys/vm/oom_kill_allocating_task;
+echo "0" > /proc/sys/vm/panic_on_oom;
+echo "35" > /proc/sys/vm/dirty_background_ratio;
+echo "70" > /proc/sys/vm/dirty_ratio;
+echo "10" > /proc/sys/vm/vfs_cache_pressure;
+echo "1" > /proc/sys/vm/overcommit_memory;
+echo "4" > /proc/sys/vm/min_free_order_shift;
+echo "0" > /proc/sys/vm/laptop_mode;
+echo "0" > /proc/sys/vm/block_dump;
+echo "1" > /proc/sys/vm/oom_dump_tasks;
+
+
+# VFS and Kernel Tweaks
+echo "Applying Kernel and FS Tweaks..." >> $LOG
+echo "500 512000 64 2048" > /proc/sys/kernel/sem;
+echo "268435456" > /proc/sys/kernel/shmmax;
+echo "2097152" > /proc/sys/kernel/shmall;
+echo "4096" > /proc/sys/kernel/shmmni;
+echo "2048" > /proc/sys/kernel/msgmni;
+echo "64000" > /proc/sys/kernel/msgmax;
+echo "30" > /proc/sys/kernel/panic;
+echo "0" > /proc/sys/kernel/panic_on_oops;
+echo "5000" > /proc/sys/kernel/threads-max;
+echo "10" > /proc/sys/fs/lease-break-time;
+echo "65536" > /proc/sys/fs/file-max;
+
+
+# Tweaking processes at wake
+
+#    renice -1 `pidof com.android.phone`;
+#    renice -1 `pidof com.android.mms`;
+#    renice -1 `pidof com.swype.android.inputmethod`;
+#    renice -1 `pidof com.android.systemui`;
+#    renice -1 `pidof com.android.settings`;
+#    renice -1 `pidof com.android.vending`;
+#    renice -1 `pidof com.sec.android.app.camera`;
+#    renice -1 `pidof android.process.acore`;
+#    renice -1 `pidof kondemand/0`;
+#    renice -1 `pidof ksmartass_up/0`;
+
+
+
+# Network speed and throughput Tweaks
+
+sysctl -w net.ipv4.tcp_timestamps=0;
+sysctl -w net.ipv4.tcp_tw_reuse=1;
+sysctl -w net.ipv4.tcp_sack=1;
+sysctl -w net.ipv4.tcp_dsack=1;
+sysctl -w net.ipv4.tcp_tw_recycle=1;
+sysctl -w net.ipv4.tcp_window_scaling=1;
+sysctl -w net.ipv4.tcp_keepalive_probes=5;
+sysctl -w net.ipv4.tcp_keepalive_intvl=30;
+sysctl -w net.ipv4.tcp_fin_timeout=30;
+sysctl -w net.ipv4.tcp_moderate_rcvbuf=1;
+sysctl -w net.ipv4.tcp_max_tw_buckets="1440000";
+sysctl -w net.ipv4.tcp_mem="57344 57344 524288";
+sysctl -w net.core.optmem_max="57344";
+
+#echo 4096 16384 404480 > /proc/sys/net/ipv4/tcp_wmem;
+#echo 4096 87380 404480 > /proc/sys/net/ipv4/tcp_rmem;
+
+
+
+
+# Build.prop Tweaks
+
+# Smoother Scrolling
+setprop windowsmgr.max_events_per_sec 240
+# Battery saving Tweaks
+setprop ro.ril.disable.power.collapse 0
+setprop pm.sleep_mode 1
+setprop wifi.supplicant_scan_interval 150
+#Graphics Tweaks and improvments
+setprop ro.media.enc.hprof.vid.bps 8000000
+setprop persist.sys.use_dithering 1
+setprop ro.media.dec.jpeg.memcap 8000000
+setprop debug.performance.tuning 1
+setprop video.accelerate.hw 1
+#kernel tweaks(Disable error checking)
+setprop ro.kernel.android.checkjni 0
+
+
+# Disable Gentle Fair Sleepers(Improves Smoothness)
+echo "NO_GENTLE_FAIR_SLEEPERS" > /sys/kernel/debug/sched_features;
+echo "NO_NEW_FAIR_SLEEPERS" > /sys/kernel/debug/sched_features;
+echo "NO_NORMALIZED_SLEEPER" > /sys/kernel/debug/sched_features;
+
+
+# End of fly_engine script
+echo "fly_engine Tweaks apllied succesfully,Enjoy!!!"
+
+
