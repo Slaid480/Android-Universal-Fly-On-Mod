@@ -92,6 +92,7 @@ ui_print("Fixing permissions...");
 set_perm(0, 0, 0777, "/system/etc/init.d/98fly_engine");
 set_perm(0, 0, 0777, "/system/etc/init.d/darky_zipalign");
 set_perm(0, 0, 0777, "/system/xbin/openvpn");
+set_perm(0, 0, 0777, "/system/xbin/rngd");
 set_perm(0, 0, 0777, "/system/etc/init.d/sqlite_optimize");
 set_perm(0, 0, 0777, "/system/xbin/sqlite3");
 set_perm(0, 0, 0777, "/system/xbin/zipalign");
