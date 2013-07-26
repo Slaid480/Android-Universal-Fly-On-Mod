@@ -1,0 +1,23 @@
+#!/system/bin/sh
+#==========================================
+#==========================================
+#====== Fly-On Mod™ by Slaid480@XDA =======
+#==========================================
+#==========================================
+
+
+FLY=/data/Fly-On/01_entropy.log;
+
+busybox rm -f $FLY
+busybox touch $FLY
+
+echo "# Fly-On LOGGING ENGINE" | tee -a $FLY
+echo "" | tee -a $FLY
+echo "$( date +"%m-%d-%Y %H:%M:%S" ) Setting entropy values & activating 'rngd' binary... " | tee -a $FLY;
+
+rngd -s 1024 -t 2 -W 70
+echo -18 >> /proc/$(pgrep rngd)/oom_adj
+renice -2 `pidof rngd`
+
+echo "" | tee -a $FLY
+echo "$( date +"%m-%d-%Y %H:%M:%S" ) Entropy values have been set & 'rngd' binary is activated!!!" | tee -a $FLY;
