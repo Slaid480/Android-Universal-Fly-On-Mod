@@ -20,7 +20,7 @@
  
 #=======================================================================#
 
-FLY=/data/Fly-On/02_ram_manager.log
+FLY=/data/Fly-On/02ram_manager.log
 
 busybox rm -f $FLY
 busybox touch $FLY
