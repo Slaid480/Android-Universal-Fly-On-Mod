@@ -106,6 +106,7 @@ set_perm(0, 0, 0777, "/system/etc/init.d/92logdelete1");
 set_perm(0, 0, 0777, "/system/etc/init.d/zipaligndata");
 set_perm(0, 0, 0777, "/system/etc/init.d/94Governor_tweaks");
 set_perm(0, 0, 0777, "/system/etc/init.d/entropy");
+set_perm(0, 0, 0777, "/system/etc/init.d/ram_manager");
 set_perm(0, 0, 0777, "/system/etc/hosts");
 set_perm(0, 0, 0777, "/system/etc/sysctl.conf");
 set_perm_recursive(0, 2000, 0777, 0777, "/system/etc/entropy");
