@@ -7,6 +7,30 @@
 # ===========================================
 
 
+#======== Copyright (C) 2013 Salah Abouabdallah A.K.A Slaid480 =========#
+ 
+#  This program is free software: you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+ 
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+#  GNU General Public License for more details.
+ 
+#  You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ 
+#=======================================================================#
+
+FLY=/data/Fly-On/06fly_engine.log
+
+busybox rm -f $FLY
+busybox touch $FLY
+
+echo "# Fly-On Mod™ LOGGING ENGINE" | tee -a $FLY
+echo "" | tee -a $FLY
+echo "$( date +"%m-%d-%Y %H:%M:%S" )  applyingfly_engine tweaks..." | tee -a $FLY;
+
 
 # Tweaking processes at wake
 
@@ -105,6 +129,9 @@ echo "NO_NORMALIZED_SLEEPER" > /sys/kernel/debug/sched_features;
 echo "fly_core Tweaks apllied succesfully,Enjoy!!!"
 
 
+
+echo "" | tee -a $FLY
+echo "$( date +"%m-%d-%Y %H:%M:%S" ) fly_engine tweaks applied successfully!" | tee -a $FLY;
 
 
 
