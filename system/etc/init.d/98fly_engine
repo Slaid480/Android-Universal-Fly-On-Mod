@@ -124,6 +124,21 @@ echo "NO_NEW_FAIR_SLEEPERS" > /sys/kernel/debug/sched_features;
 echo "NO_NORMALIZED_SLEEPER" > /sys/kernel/debug/sched_features;
 
 
+# VM Tweaks
+ #sysctl -w kernel.msgmni=1024;
+
+if [ "$mem" -lt 524288 ];then
+	sysctl -w vm.dirty_background_ratio=15;
+	sysctl -w vm.dirty_ratio=30;
+elif [ "$mem" -lt 1049776 ];then
+	sysctl -w vm.dirty_background_ratio=10;
+	sysctl -w vm.dirty_ratio=20;
+else 
+	sysctl -w vm.dirty_background_ratio=5;
+	sysctl -w vm.dirty_ratio=10;
+fi;
+
+
 
 # End of fly_engine script
 echo "fly_core Tweaks apllied succesfully,Enjoy!!!"
