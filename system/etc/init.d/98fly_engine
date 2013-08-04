@@ -100,16 +100,7 @@ echo "50" > /proc/sys/net/unix/max_dgram_qlen;
 
 # Build.prop Tweaks
 
-# Smoother Scrolling
-setprop windowsmgr.max_events_per_sec 240
-# Battery saving Tweaks
-setprop ro.ril.disable.power.collapse 0
-setprop pm.sleep_mode 1
-setprop wifi.supplicant_scan_interval 150
 #Graphics Tweaks and improvments
-setprop ro.media.enc.hprof.vid.bps 8000000
-setprop persist.sys.use_dithering 1
-setprop ro.media.dec.jpeg.memcap 8000000
 setprop debug.performance.tuning 1
 setprop video.accelerate.hw 1
 #kernel tweaks(Disable error checking)
