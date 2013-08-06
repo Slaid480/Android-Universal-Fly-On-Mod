@@ -1,0 +1,38 @@
+#!/system/bin/sh
+#===================================================
+#===================================================
+#=== Fly-On Mod™ entropy script by Slaid480@XDA ====
+#===================================================
+#===================================================
+
+#======== Copyright (C) 2013 Salah Abouabdallah(Slaid480)==============#
+ 
+#  This program is free software: you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+ 
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+#  GNU General Public License for more details.
+ 
+#  You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ 
+#=======================================================================#
+
+
+FLY=/data/Fly-On/01entropy.log;
+
+busybox rm -f $FLY
+busybox touch $FLY
+
+echo "# Fly-On LOGGING ENGINE" | tee -a $FLY
+echo "" | tee -a $FLY
+echo "$( date +"%m-%d-%Y %H:%M:%S" ) Setting entropy values & activating 'rngd' binary... " | tee -a $FLY;
+
+rngd -s 1024 -t 2 -W 75
+echo "-14" >> /proc/$(pgrep rngd)/oom_adj
+renice 4 `pidof rngd`
+
+echo "" | tee -a $FLY
+echo "$( date +"%m-%d-%Y %H:%M:%S" ) Entropy values have been set & 'rngd' binary is activated!!!" | tee -a $FLY;
