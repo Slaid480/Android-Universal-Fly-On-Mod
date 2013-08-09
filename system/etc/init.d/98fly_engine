@@ -101,10 +101,21 @@ echo "50" > /proc/sys/net/unix/max_dgram_qlen;
 # Build.prop Tweaks
 
 #Graphics Tweaks and improvments
-setprop debug.performance.tuning 1
-setprop video.accelerate.hw 1
+setprop debug.performance.tuning 1;
+setprop video.accelerate.hw 1;
+#Battery Tweaks
+setprop wifi.supplicant_scan_interval 120;
+#Dalvik VM tweaks
+setprop dalvik.vm.startheapsize 8m;
+if [ "$mem" -lt 524288 ];then
+	setprop dalvik.vm.heapsize 64m;
+elif [ "$mem" -lt 1049776 ];then
+	setprop dalvik.vm.heapsize 64m;
+else 
+	setprop dalvik.vm.heapsize 48m;
+fi;
 #kernel tweaks(Disable error checking)
-setprop ro.kernel.android.checkjni 0
+setprop ro.kernel.android.checkjni 0;
 
 
 
