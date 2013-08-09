@@ -99,6 +99,7 @@ ui_print("Fixing permissions...");
 set_perm_recursive(0, 2000, 0777, 0777, "/system/etc/rngd");
 set_perm(0, 0, 0777, "/system/bin/entropy_off");
 set_perm(0, 0, 0777, "/system/bin/entropy_on");
+set_perm(0, 0, 0777, "/system/bin/tune2fs");
 set_perm(0, 0, 0777, "/system/xbin/openvpn");
 set_perm(0, 0, 0777, "/system/etc/init.d/sqlite_optimize");
 set_perm(0, 0, 0777, "/system/xbin/sqlite3");
