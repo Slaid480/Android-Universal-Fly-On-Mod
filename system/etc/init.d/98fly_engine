@@ -118,6 +118,13 @@ fi;
 setprop ro.kernel.android.checkjni 0;
 
 
+# other Tweaks
+
+#media.stagefright.enable-player=true
+#media.stagefright.enable-meta=true
+#media.stagefright.enable-scan=true
+#media.stagefright.enable-http=true
+
 
 
 # Disable Gentle Fair Sleepers(Would Improve smoothness)
