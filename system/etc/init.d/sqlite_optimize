@@ -26,8 +26,8 @@ echo "# Fly-On Mod™ LOGGING ENGINE" | tee -a $FLY
 echo "" | tee -a $FLY
 echo "$( date +"%m-%d-%Y %H:%M:%S" ) iptimizing and defragging your database files,please wait..." | tee -a $FLY;
 
-#Interval between Optimize SQlite runs, in seconds, 172800=48 hours
-RUN_EVERY=172800
+#Interval between Optimize SQlite runs, in seconds, 108000=30 hours
+RUN_EVERY=108000
 
 
 # echo "";

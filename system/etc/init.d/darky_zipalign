@@ -16,8 +16,8 @@
  
 #=======================================================================#
 
-#Interval between ZipAlign runs, in seconds, 172800=48 hours
-RUN_EVERY=172800
+#Interval between ZipAlign runs, in seconds, 108000=30 hours
+RUN_EVERY=108000
 
 LOG_FILE=/data/zipalign.log
 ZIPALIGNDB=/data/zipalign.db
