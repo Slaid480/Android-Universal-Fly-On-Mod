@@ -1,6 +1,6 @@
 #!/system/bin/sh
-# 02logdelete1 For Fly-On Mod by Slaid480
-# Big Thank to CALIBAN666 
+# 92cleaner For Fly-On Mod by Slaid480@XDA
+# Big Thank to CALIBAN666@XDA
 
 
 #============ Copyright (C) 2013 Salah Abouabdallah(Slaid480)===========#
@@ -18,10 +18,12 @@
  
 #=======================================================================#
 
-# v.1 - first release
+#Interval between cleaner runs,in seconds, 108000=30 hours
+RUN_EVERY=108000
 
-LOG_FILE=/data/Fly-On/logdelete1_tweak1.log
-LOG_FILEZ=/data/Fly-On/Fly-On_sqlite.log
+
+LOG_FILE=/data/Fly-On/08cleaner.log
+LOG_FILEZ=/data/Fly-On/08cleaner.log
     if [ -e $LOG_FILE ]; then
         rm $LOG_FILE;
     fi;
@@ -32,12 +34,8 @@ LOG_FILEZ=/data/Fly-On/Fly-On_sqlite.log
 
 # the preface
 echo "==========================
-#  TWEAK Logdelete1-LOG FILE  #
-==========================
-in the name of Android,
-the most flashable,
-the maybe most stable
-==========================
+      #  Cleaner script  #
+
 system information:
 vendor   : $( getprop ro.product.brand )
 model    : $( getprop ro.product.model )
@@ -94,8 +92,4 @@ fi;
 echo "==========================
 done at:
 $( date +"%m-%d-%Y %H:%M:%S" )
-all praise is due to Android
-==========================
---  Thanks to           --
-     -CALIBAN666@XDA-
-==========================" | tee -a $LOG_FILE;
+ Thanks to -CALIBAN666@XDA-" | tee -a $LOG_FILE;
