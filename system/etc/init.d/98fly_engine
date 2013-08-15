@@ -105,25 +105,9 @@ setprop debug.performance.tuning 1;
 setprop video.accelerate.hw 1;
 #Battery Tweaks
 setprop wifi.supplicant_scan_interval 120;
-#Dalvik VM tweaks
-setprop dalvik.vm.startheapsize 8m;
-if [ "$mem" -lt 524288 ];then
-	setprop dalvik.vm.heapsize 48m;
-elif [ "$mem" -lt 1049776 ];then
-	setprop dalvik.vm.heapsize 64m;
-else 
-	setprop dalvik.vm.heapsize 128m;
-fi;
 #kernel tweaks(Disable error checking)
 setprop ro.kernel.android.checkjni 0;
 
-
-# other Tweaks
-
-#media.stagefright.enable-player=true
-#media.stagefright.enable-meta=true
-#media.stagefright.enable-scan=true
-#media.stagefright.enable-http=true
 
 
 
