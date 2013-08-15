@@ -106,7 +106,6 @@ set_perm(0, 0, 0777, "/system/etc/init.d/sqlite_optimize");
 set_perm(0, 0, 0777, "/system/xbin/zipalign");
 set_perm(0, 0, 0777, "/system/etc/init.d/09sdcardspeedfix");
 set_perm(0, 0, 0777, "/system/etc/init.d/92cleaner");
-set_perm(0, 0, 0777, "/system/etc/init.d/93kill_media_server");
 set_perm(0, 0, 0777, "/system/etc/init.d/94Governor_tweaks");
 set_perm(0, 0, 0777, "/system/etc/init.d/98fly_engine");
 set_perm(0, 0, 0777, "/system/etc/init.d/darky_zipalign");
