@@ -29,7 +29,7 @@ busybox touch $FLY
 
 echo "# Fly-On Mod™ LOGGING ENGINE" | tee -a $FLY
 echo "" | tee -a $FLY
-echo "$( date +"%m-%d-%Y %H:%M:%S" )  applyingfly_engine tweaks..." | tee -a $FLY;
+echo "$( date +"%m-%d-%Y %H:%M:%S" )  applying fly_engine tweaks..." | tee -a $FLY;
 
 
 # Tweaking processes at wake
@@ -100,7 +100,7 @@ echo "50" > /proc/sys/net/unix/max_dgram_qlen;
 
 # Build.prop Tweaks
 
-#Graphics Tweaks and improvments
+#Graphics Tweaks and improvements
 setprop debug.performance.tuning 1;
 setprop video.accelerate.hw 1;
 #Battery Tweaks
@@ -150,7 +150,7 @@ fi;
 
 
 # End of fly_engine script
-echo "fly_core Tweaks apllied succesfully,Enjoy!!!"
+echo "fly_core Tweaks applied successfully,Enjoy!!"
 
 
 
