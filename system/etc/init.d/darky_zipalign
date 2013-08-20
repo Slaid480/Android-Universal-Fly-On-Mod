@@ -19,7 +19,7 @@
 #Interval between ZipAlign runs, in seconds, 108000=30 hours
 RUN_EVERY=108000
 
-LOG_FILE=/data/zipalign.log
+LOG_FILE=/data/Fly-On/09zipalign.log
 ZIPALIGNDB=/data/zipalign.db
 
 if [ -e $LOG_FILE ]; then
