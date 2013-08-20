@@ -26,6 +26,7 @@ LOG_FILE=/data/zipalign_data.log
       rm $LOG_FILE;
     fi;
 
+sleep 5
 
 echo "Starting Automatic ZipAlign $( date +"%m-%d-%Y %H:%M:%S" )" | tee -a $LOG_FILE;
     for apk in /data/app/*.apk ; do
@@ -44,4 +45,6 @@ echo "Starting Automatic ZipAlign $( date +"%m-%d-%Y %H:%M:%S" )" | tee -a $LOG_
     echo ZipAlign already completed on $apk  | tee -a $LOG_FILE;
   fi;
        done;
+	   
+sleep 5
 echo "Automatic ZipAlign finished at $( date +"%m-%d-%Y %H:%M:%S" )" | tee -a $LOG_FILE;

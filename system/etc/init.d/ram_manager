@@ -32,6 +32,8 @@ echo "$( date +"%m-%d-%Y %H:%M:%S" ) Tweaking minfree values & adj lowmem values
 
 echo "0,1,3,5,7,15" > /sys/module/lowmemorykiller/parameters/adj;
 
+sleep 5
+
 # Minfree Values 
 echo "2560,4096,7680,14336,17284,21240" > /sys/module/lowmemorykiller/parameters/minfree;
 
