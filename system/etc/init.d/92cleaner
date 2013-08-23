@@ -52,7 +52,6 @@ busybox rm -f /data/mlog/*
 busybox rm -f /data/tombstones/*
 busybox rm -f /data/system/dropbox/*
 chmod 400 /data/system/dropbox
-busybox rm /dev/log/main
 busybox rm -f /data/system/usagestats/*
 busybox chmod 400 /data/system/usagestats
 
