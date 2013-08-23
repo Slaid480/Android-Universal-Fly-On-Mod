@@ -52,8 +52,6 @@ busybox rm -f /data/anr/*.*
 busybox rm -f /data/cache/*.*
 busybox rm -f /data/log/*.*
 busybox rm -f /data/local/tmp/*.*
-busybox rm -f /data/last_alog/*
-busybox rm -f /data/last_kmsg/*
 busybox rm -f /data/mlog/*
 busybox rm -f /data/tombstones/*
 busybox rm -f /data/system/dropbox/*
