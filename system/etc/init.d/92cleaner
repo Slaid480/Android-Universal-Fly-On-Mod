@@ -21,7 +21,6 @@
 #Interval between cleaner runs,in seconds, 108000=30 hours
 RUN_EVERY=108000
 
-sleep 5
 
 LOG_FILE=/data/Fly-On/08cleaner.log
 LOG_FILEZ=/data/Fly-On/08cleaner.log
@@ -39,7 +38,6 @@ start at:
 $( date +"%m-%d-%Y %H:%M:%S" )
 ==========================" | tee -a $LOG_FILE;
 
-sleep 5
 
 # cleaner
 busybox rm -f /data/anr/*.*
@@ -56,7 +54,6 @@ busybox chmod 400 /data/system/usagestats
 export sampling_rate=10000
 export up_threshold=80
 
-sleep 10
 
 echo "memory cleaner--------[OK]" | tee -a $LOG_FILE;
 
