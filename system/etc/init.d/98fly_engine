@@ -1,7 +1,7 @@
 #!/system/bin/sh
 # ===========================================
 # ===========================================
-# ========== Fly_engine | Fly-On Mod™ =======
+# ========== Fly_engine | Fly-On Modï¿½ =======
 # ========== By Slaid480@XDA 2013 ===========
 # ===========================================
 # ===========================================
@@ -27,11 +27,10 @@ FLY=/data/Fly-On/06fly_engine.log
 busybox rm -f $FLY
 busybox touch $FLY
 
-echo "# Fly-On Mod™ LOGGING ENGINE" | tee -a $FLY
+echo "# Fly-On Modï¿½ LOGGING ENGINE" | tee -a $FLY
 echo "" | tee -a $FLY
 echo "$( date +"%m-%d-%Y %H:%M:%S" )  applying fly_engine tweaks..." | tee -a $FLY;
 
-sleep 5
 
 # Tweaking processes at wake
 
@@ -48,7 +47,6 @@ sleep 5
 #    renice -1 `pidof ksmartass_up/0`;
 
 
-sleep 5
 
 # Network speed Tweaks
 
@@ -95,8 +93,6 @@ echo "2500" > /proc/sys/net/core/netdev_max_backlog;
 echo "50" > /proc/sys/net/unix/max_dgram_qlen;
 
 
-sleep 5
-
 
 
 # Build.prop Tweaks
@@ -109,15 +105,13 @@ setprop wifi.supplicant_scan_interval 120;
 #kernel tweaks(Disable error checking)
 setprop ro.kernel.android.checkjni 0;
 
-sleep 5
-
 
 # Disable Gentle Fair Sleepers(Would Improve smoothness)
 echo "NO_GENTLE_FAIR_SLEEPERS" > /sys/kernel/debug/sched_features;
 echo "NO_NEW_FAIR_SLEEPERS" > /sys/kernel/debug/sched_features;
 echo "NO_NORMALIZED_SLEEPER" > /sys/kernel/debug/sched_features;
 
-sleep 5
+
 
 # VM Tweaks
  #sysctl -w kernel.msgmni=1024;
@@ -133,7 +127,7 @@ else
 	sysctl -w vm.dirty_ratio=10;
 fi;
 
-sleep 5
+
 
 # End of fly_engine script
 echo "fly_engine Tweaks applied successfully,Enjoy!!"
