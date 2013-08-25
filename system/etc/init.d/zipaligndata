@@ -1,5 +1,5 @@
 #!/system/bin/sh
-# Automatic ZipAlign for Fly-On Mod™ by Slaid480
+# Automatic ZipAlign for Fly-On Modï¿½ by Slaid480
 # ZipAlign files in /data that have not been previously
 
 
@@ -26,7 +26,7 @@ LOG_FILE=/data/Fly-On/10zipaligndata.log
       rm $LOG_FILE;
     fi;
 
-sleep 5
+
 
 echo "Starting Automatic ZipAlign $( date +"%m-%d-%Y %H:%M:%S" )" | tee -a $LOG_FILE;
     for apk in /data/app/*.apk ; do
@@ -46,5 +46,5 @@ echo "Starting Automatic ZipAlign $( date +"%m-%d-%Y %H:%M:%S" )" | tee -a $LOG_
   fi;
        done;
 	   
-sleep 5
+
 echo "Automatic ZipAlign finished at $( date +"%m-%d-%Y %H:%M:%S" )" | tee -a $LOG_FILE;
