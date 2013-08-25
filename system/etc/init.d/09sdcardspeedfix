@@ -1,7 +1,7 @@
 #!/system/bin/sh
 #=====================================================
 #=====================================================
-#=== Fly-On Mod™ SDCard speed Fix by Slaid480@XDA ====
+#=== Fly-On Modï¿½ SDCard speed Fix by Slaid480@XDA ====
 #=====================================================
 #=====================================================
 
@@ -25,10 +25,9 @@ FLY=/data/Fly-On/03sdcardspeedfix.log
 busybox rm -f $FLY
 busybox touch $FLY
 
-echo "# Fly-On Mod™ LOGGING ENGINE" | tee -a $FLY
+echo "# Fly-On Modï¿½ LOGGING ENGINE" | tee -a $FLY
 echo "" | tee -a $FLY
 echo "$( date +"%m-%d-%Y %H:%M:%S" ) Tweaking SDCard read_ahead cache..." | tee -a $FLY;
-sleep 5
 
 READ_AHEAD_KB="2048"
 
@@ -87,7 +86,7 @@ if [ -e /sys/devices/virtual/bdi/default/read_ahead_kb ]; then
     echo "SD card read ahead kb SET to $READ_AHEAD_KB"
 fi
 
-sleep 5
+
 
 echo "" | tee -a $FLY
 echo "$( date +"%m-%d-%Y %H:%M:%S" ) SDCard tweaking done!" | tee -a $FLY;
