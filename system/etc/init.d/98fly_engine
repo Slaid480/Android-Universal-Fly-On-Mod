@@ -105,6 +105,8 @@ setprop debug.performance.tuning 1;
 setprop video.accelerate.hw 1;
 #Battery Tweaks
 setprop wifi.supplicant_scan_interval 120;
+pm.sleep_mode=1;
+ro.ril.disable.power.collapse=0;
 #Dalvik VM tweaks
 setprop dalvik.vm.startheapsize 8m;
 if [ "$mem" -lt 524288 ];then
