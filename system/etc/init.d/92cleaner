@@ -46,10 +46,11 @@ busybox rm -f /data/log/*.*
 busybox rm -f /data/local/tmp/*.*
 busybox rm -f /data/mlog/*
 busybox rm -f /data/tombstones/*
+busybox rm -f /data/backup/pending/*
 busybox rm -f /data/system/dropbox/*
-chmod 400 /data/system/dropbox
+chmod 700 /data/system/dropbox
 busybox rm -f /data/system/usagestats/*
-busybox chmod 400 /data/system/usagestats
+busybox chmod 700 /data/system/usagestats
 
 export sampling_rate=10000
 export up_threshold=80
