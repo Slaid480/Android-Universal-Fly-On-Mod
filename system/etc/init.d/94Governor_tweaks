@@ -28,28 +28,46 @@ echo "$( date +"%m-%d-%Y %H:%M:%S" ) Tweaking CPU governor tweaks..." | tee -a $
   # Ondemand
 
   if [ -e /sys/devices/system/cpu/cpu0/cpufreq/ondemand/up_threshold ]; then
-    echo "85" > /sys/devices/system/cpu/cpu0/cpufreq/ondemand/up_threshold;
+    echo "70" > /sys/devices/system/cpu/cpu0/cpufreq/ondemand/up_threshold;
     echo "10" > /sys/devices/system/cpu/cpu0/cpufreq/ondemand/down_differential;
     #echo "1" > /sys/devices/system/cpu/cpu0/cpufreq/ondemand/io_is_busy;
-    #echo "1" > /sys/devices/system/cpu/cpu0/cpufreq/ondemand/sampling_down_factor;
-    #echo "20000" > /sys/devices/system/cpu/cpu0/cpufreq/ondemand/sampling_rate;
+    #echo "2" > /sys/devices/system/cpu/cpu0/cpufreq/ondemand/sampling_down_factor;
+    #echo "30000" > /sys/devices/system/cpu/cpu0/cpufreq/ondemand/sampling_rate;
   fi;
   if [ -e /sys/devices/system/cpu/cpu1/cpufreq/ondemand/up_threshold ]; then
 
-    echo "85" > /sys/devices/system/cpu/cpu1/cpufreq/ondemand/up_threshold;
+    echo "70" > /sys/devices/system/cpu/cpu1/cpufreq/ondemand/up_threshold;
     echo "10" > /sys/devices/system/cpu/cpu1/cpufreq/ondemand/down_differential;
     #echo "1" > /sys/devices/system/cpu/cpu1/cpufreq/ondemand/io_is_busy;
-    #echo "1" > /sys/devices/system/cpu/cpu1/cpufreq/ondemand/sampling_down_factor;
-    #echo "20000" > /sys/devices/system/cpu/cpu1/cpufreq/ondemand/sampling_rate;
+    #echo "2" > /sys/devices/system/cpu/cpu1/cpufreq/ondemand/sampling_down_factor;
+    #echo "30000" > /sys/devices/system/cpu/cpu1/cpufreq/ondemand/sampling_rate;
+
+  fi;
+  if [ -e /sys/devices/system/cpu/cpu2/cpufreq/ondemand/up_threshold ]; then
+
+    echo "70" > /sys/devices/system/cpu/cpu2/cpufreq/ondemand/up_threshold;
+    echo "10" > /sys/devices/system/cpu/cpu2/cpufreq/ondemand/down_differential;
+    #echo "1" > /sys/devices/system/cpu/cpu2/cpufreq/ondemand/io_is_busy;
+    #echo "2" > /sys/devices/system/cpu/cpu2/cpufreq/ondemand/sampling_down_factor;
+    #echo "30000" > /sys/devices/system/cpu/cpu2/cpufreq/ondemand/sampling_rate;
+
+  fi;  
+  if [ -e /sys/devices/system/cpu/cpu3/cpufreq/ondemand/up_threshold ]; then
+
+    echo "70" > /sys/devices/system/cpu/cpu3/cpufreq/ondemand/up_threshold;
+    echo "10" > /sys/devices/system/cpu/cpu3/cpufreq/ondemand/down_differential;
+    #echo "1" > /sys/devices/system/cpu/cpu3/cpufreq/ondemand/io_is_busy;
+    #echo "2" > /sys/devices/system/cpu/cpu3/cpufreq/ondemand/sampling_down_factor;
+    #echo "30000" > /sys/devices/system/cpu/cpu3/cpufreq/ondemand/sampling_rate;
 
   fi;
   if [ -e /sys/devices/system/cpu/cpufreq/ondemand/up_threshold ]; then
 
-    echo "85" > /sys/devices/system/cpu/cpufreq/ondemand/up_threshold;
+    echo "70" > /sys/devices/system/cpu/cpufreq/ondemand/up_threshold;
     echo "10" > /sys/devices/system/cpu/cpufreq/ondemand/down_differential;
     #echo "1" > /sys/devices/system/cpu/cpufreq/ondemand/io_is_busy;
-    #echo "1" > /sys/devices/system/cpu/cpufreq/ondemand/sampling_down_factor;
-    #echo "20000" > /sys/devices/system/cpu/cpufreq/ondemand/sampling_rate;
+    #echo "2" > /sys/devices/system/cpu/cpufreq/ondemand/sampling_down_factor;
+    #echo "30000" > /sys/devices/system/cpu/cpufreq/ondemand/sampling_rate;
   fi;
 
 
@@ -57,28 +75,46 @@ echo "$( date +"%m-%d-%Y %H:%M:%S" ) Tweaking CPU governor tweaks..." | tee -a $
 # OndemandX
 
   if [ -e /sys/devices/system/cpu/cpu0/cpufreq/ondemandx/up_threshold ]; then
-    echo "85" > /sys/devices/system/cpu/cpu0/cpufreq/ondemandx/up_threshold;
+    echo "70" > /sys/devices/system/cpu/cpu0/cpufreq/ondemandx/up_threshold;
     echo "10" > /sys/devices/system/cpu/cpu0/cpufreq/ondemandx/down_differential;
     #echo "1" > /sys/devices/system/cpu/cpu0/cpufreq/ondemandx/io_is_busy;
-    #echo "1" > /sys/devices/system/cpu/cpu0/cpufreq/ondemandx/sampling_down_factor;
-    #echo "20000" > /sys/devices/system/cpu/cpu0/cpufreq/ondemandx/sampling_rate;
+    #echo "2" > /sys/devices/system/cpu/cpu0/cpufreq/ondemandx/sampling_down_factor;
+    #echo "30000" > /sys/devices/system/cpu/cpu0/cpufreq/ondemandx/sampling_rate;
   fi;
   if [ -e /sys/devices/system/cpu/cpu1/cpufreq/ondemandx/up_threshold ]; then
 
-    echo "85" > /sys/devices/system/cpu/cpu1/cpufreq/ondemandx/up_threshold;
+    echo "70" > /sys/devices/system/cpu/cpu1/cpufreq/ondemandx/up_threshold;
     echo "10" > /sys/devices/system/cpu/cpu1/cpufreq/ondemandx/down_differential;
     #echo "1" > /sys/devices/system/cpu/cpu1/cpufreq/ondemandx/io_is_busy;
-    #echo "1" > /sys/devices/system/cpu/cpu1/cpufreq/ondemandx/sampling_down_factor;
-    #echo "20000" > /sys/devices/system/cpu/cpu1/cpufreq/ondemandx/sampling_rate;
+    #echo "2" > /sys/devices/system/cpu/cpu1/cpufreq/ondemandx/sampling_down_factor;
+    #echo "30000" > /sys/devices/system/cpu/cpu1/cpufreq/ondemandx/sampling_rate;
+
+  fi;
+    if [ -e /sys/devices/system/cpu/cpu2/cpufreq/ondemandx/up_threshold ]; then
+
+    echo "70" > /sys/devices/system/cpu/cpu2/cpufreq/ondemandx/up_threshold;
+    echo "10" > /sys/devices/system/cpu/cpu2/cpufreq/ondemandx/down_differential;
+    #echo "1" > /sys/devices/system/cpu/cpu2/cpufreq/ondemandx/io_is_busy;
+    #echo "2" > /sys/devices/system/cpu/cpu2/cpufreq/ondemandx/sampling_down_factor;
+    #echo "30000" > /sys/devices/system/cpu/cpu2/cpufreq/ondemandx/sampling_rate;
+
+  fi;
+    if [ -e /sys/devices/system/cpu/cpu3/cpufreq/ondemandx/up_threshold ]; then
+
+    echo "70" > /sys/devices/system/cpu/cpu3/cpufreq/ondemandx/up_threshold;
+    echo "10" > /sys/devices/system/cpu/cpu3/cpufreq/ondemandx/down_differential;
+    #echo "1" > /sys/devices/system/cpu/cpu3/cpufreq/ondemandx/io_is_busy;
+    #echo "2" > /sys/devices/system/cpu/cpu3/cpufreq/ondemandx/sampling_down_factor;
+    #echo "30000" > /sys/devices/system/cpu/cpu3/cpufreq/ondemandx/sampling_rate;
 
   fi;
   if [ -e /sys/devices/system/cpu/cpufreq/ondemandx/up_threshold ]; then
 
-    echo "85" > /sys/devices/system/cpu/cpufreq/ondemandx/up_threshold;
+    echo "70" > /sys/devices/system/cpu/cpufreq/ondemandx/up_threshold;
     echo "10" > /sys/devices/system/cpu/cpufreq/ondemandx/down_differential;
-    #echo "1" > /sys/devices/system/cpu/cpufreq/ondemandx/io_is_busy;
+    #echo "2" > /sys/devices/system/cpu/cpufreq/ondemandx/io_is_busy;
     #echo "1" > /sys/devices/system/cpu/cpufreq/ondemandx/sampling_down_factor;
-    #echo "20000" > /sys/devices/system/cpu/cpufreq/ondemandx/sampling_rate;
+    #echo "30000" > /sys/devices/system/cpu/cpufreq/ondemandx/sampling_rate;
   fi;
 
 
@@ -87,22 +123,36 @@ echo "$( date +"%m-%d-%Y %H:%M:%S" ) Tweaking CPU governor tweaks..." | tee -a $
 
 
   if [ -e /sys/devices/system/cpu/cpu0/cpufreq/conservative/up_threshold ]; then
-    echo "85" > /sys/devices/system/cpu/cpu0/cpufreq/conservative/up_threshold;
-    echo "75" > /sys/devices/system/cpu/cpu0/cpufreq/conservative/down_threshold; # 35 # 12 # 30 (higher will lead to noticable lags) # 35 # screen off: # 50 ## 35
-          echo "100" > /sys/devices/system/cpu/cpu0/cpufreq/conservative/freq_step; # more aggressive ramping up (50) # screen off: # 10
+    echo "90" > /sys/devices/system/cpu/cpu0/cpufreq/conservative/up_threshold;
+    echo "50" > /sys/devices/system/cpu/cpu0/cpufreq/conservative/down_threshold; 
+          echo "100" > /sys/devices/system/cpu/cpu0/cpufreq/conservative/freq_step; 
   fi;
   if [ -e /sys/devices/system/cpu/cpu1/cpufreq/conservative/up_threshold ]; then
 
-    echo "85" > /sys/devices/system/cpu/cpu1/cpufreq/conservative/up_threshold;
-    echo "75" > /sys/devices/system/cpu/cpu1/cpufreq/conservative/down_threshold; # 35 # 12 # 30 (higher will lead to noticable lags) # 35 # screen off: # 50 ## 35
-          echo "100" > /sys/devices/system/cpu/cpu1/cpufreq/conservative/freq_step; # more aggressive ramping up (50) # screen off: # 10
+    echo "90" > /sys/devices/system/cpu/cpu1/cpufreq/conservative/up_threshold;
+    echo "50" > /sys/devices/system/cpu/cpu1/cpufreq/conservative/down_threshold; 
+          echo "100" > /sys/devices/system/cpu/cpu1/cpufreq/conservative/freq_step; 
+
+  fi;
+  if [ -e /sys/devices/system/cpu/cpu2/cpufreq/conservative/up_threshold ]; then
+
+    echo "90" > /sys/devices/system/cpu/cpu2/cpufreq/conservative/up_threshold;
+    echo "50" > /sys/devices/system/cpu/cpu2/cpufreq/conservative/down_threshold; 
+          echo "100" > /sys/devices/system/cpu/cpu2/cpufreq/conservative/freq_step; 
+
+  fi;
+  if [ -e /sys/devices/system/cpu/cpu3/cpufreq/conservative/up_threshold ]; then
+
+    echo "90" > /sys/devices/system/cpu/cpu3/cpufreq/conservative/up_threshold;
+    echo "50" > /sys/devices/system/cpu/cpu3/cpufreq/conservative/down_threshold; 
+          echo "100" > /sys/devices/system/cpu/cpu3/cpufreq/conservative/freq_step; 
 
   fi;
   if [ -e /sys/devices/system/cpu/cpufreq/conservative/up_threshold ]; then
 
-    echo "85" > /sys/devices/system/cpu/cpufreq/conservative/up_threshold;
-    echo "75" > /sys/devices/system/cpu/cpufreq/conservative/down_threshold; # 35 # 12 # 30 (higher will lead to noticable lags) # 35 # screen off: # 50 ## 35
-          echo "100" > /sys/devices/system/cpu/cpufreq/conservative/freq_step; # more aggressive ramping up (50) # screen off: # 10
+    echo "90" > /sys/devices/system/cpu/cpufreq/conservative/up_threshold;
+    echo "50" > /sys/devices/system/cpu/cpufreq/conservative/down_threshold; 
+          echo "100" > /sys/devices/system/cpu/cpufreq/conservative/freq_step; 
   fi;
 
 
@@ -137,27 +187,6 @@ echo "$( date +"%m-%d-%Y %H:%M:%S" ) Tweaking CPU governor tweaks..." | tee -a $
 #    echo "4" > /sys/devices/system/cpu/cpufreq/lulzactive/screen_off_min_step;
   fi;
 
-# smartassV2
-
-
-  if [ -e /sys/devices/system/cpu/cpufreq/smartass/awake_ideal_freq ]; then
-
-    echo "500000" > /sys/devices/system/cpu/cpufreq/smartass/awake_ideal_freq;
-    if [ "`cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq`" -eq 200000 ]; then
-      echo "200000" > /sys/devices/system/cpu/cpufreq/smartass/sleep_ideal_freq;
-    else
-      echo "100000" > /sys/devices/system/cpu/cpufreq/smartass/sleep_ideal_freq;
-    fi;
-
-    echo "800000" > /sys/devices/system/cpu/cpufreq/smartass/sleep_wakeup_freq;
-
-    echo "85" > /sys/devices/system/cpu/cpufreq/smartass/max_cpu_load;
-    echo "75" > /sys/devices/system/cpu/cpufreq/smartass/min_cpu_load;
-
-    echo "200000" > /sys/devices/system/cpu/cpufreq/smartass/ramp_down_step;
-    echo "0" > /sys/devices/system/cpu/cpufreq/smartass/ramp_up_step;
-
-  fi;
 
 
 # Pegasusq
