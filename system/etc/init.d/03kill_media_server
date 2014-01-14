@@ -1,0 +1,4 @@
+#!/system/bin/sh
+#Kill media server to save battery for Fly-On Mod™ by Slaid480!
+killall -9 android.process.media
+killall -9 mediaserver
