@@ -117,11 +117,13 @@ echo "NO_NORMALIZED_SLEEPER" > /sys/kernel/debug/sched_features;
 
 # VM Tweaks
  #sysctl -w kernel.msgmni=1024;
+ 
+ mem=`free|grep Mem | awk '{print $2}'`;
 
-if [ "$mem" -lt 524288 ];then
+if [ "$mem" -lt 512000 ];then
 	sysctl -w vm.dirty_background_ratio=15;
 	sysctl -w vm.dirty_ratio=30;
-elif [ "$mem" -lt 1049776 ];then
+elif [ "$mem" -lt 1024000 ];then
 	sysctl -w vm.dirty_background_ratio=10;
 	sysctl -w vm.dirty_ratio=20;
 else 
