@@ -18,8 +18,8 @@
  
 #=======================================================================#
 
-#Interval between cleaner runs,in seconds, 108000=30 hours
-RUN_EVERY=108000
+#Interval between cleaner runs,in seconds, 172800=48 hours
+RUN_EVERY=172800
 
 
 LOG_FILE=/data/Fly-On/08cleaner.log
@@ -34,7 +34,7 @@ LOG_FILEZ=/data/Fly-On/08cleaner.log
 
 
 #running the script...
-start at:
+echo "start at:"
 $( date +"%m-%d-%Y %H:%M:%S" )
 ==========================" | tee -a $LOG_FILE;
 
