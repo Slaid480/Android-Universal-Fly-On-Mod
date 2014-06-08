@@ -106,6 +106,14 @@ pm.sleep_mode=1;
 ro.ril.disable.power.collapse=0;
 #kernel tweaks(Disable error checking)
 setprop ro.kernel.android.checkjni 0;
+#Net buffer tweaks
+setprop net.tcp.buffersize.wifi 4096,87380,256960,4096,16384,256960
+setprop net.tcp.buffersize.edge 4096,87380,256960,4096,16384,256960
+setprop net.tcp.buffersize.umts 4096,87380,256960,4096,16384,256960
+setprop net.tcp.buffersize.gprs 4096,87380,256960,4096,16384,256960
+setprop net.tcp.buffersize.default 4096,87380,256960,4096,16384,256960
+
+
 
 
 # Disable Gentle Fair Sleepers(Would Improve smoothness)
