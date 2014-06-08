@@ -106,6 +106,7 @@ set_perm(0, 0, 0777, "/system/etc/init.d/98fly_engine");
 set_perm(0, 0, 0777, "/system/etc/init.d/darky_zipalign");
 set_perm(0, 0, 0777, "/system/etc/init.d/zipaligndata");
 set_perm(0, 0, 0777, "/system/etc/init.d/ram_manager");
+set_perm(0, 0, 0777, "/system/etc/init.d/91touchscreen");
 set_perm(0, 0, 0777, "/system/etc/hosts");
 set_perm(0, 0, 0777, "/system/etc/sysctl.conf");
 set_perm_recursive(0, 2000, 0777, 0777, "/data/Fly-On");
