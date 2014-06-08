@@ -30,3 +30,6 @@ echo 13060 > /sys/class/touch/switch/set_touchscreen;
 echo 14005 > /sys/class/touch/switch/set_touchscreen;
 echo 7035 > /sys/class/touch/switch/set_touchscreen;
 echo 8002 > /sys/class/touch/switch/set_touchscreen;
+
+echo "" | tee -a $FLY
+echo "$( date +"%m-%d-%Y %H:%M:%S" ) Touch rendering is done!" | tee -a $FLY;
