@@ -77,7 +77,6 @@ echo "0" > /proc/sys/net/ipv4/conf/default/accept_redirects;
 echo "0" > /proc/sys/net/ipv4/conf/all/secure_redirects;
 echo "0" > /proc/sys/net/ipv4/conf/default/secure_redirects;
 echo "0" > /proc/sys/net/ipv4/ip_dynaddr;
-echo "0" > /proc/sys/net/ipv4/tcp_timestamps;
 echo "1" > /proc/sys/net/ipv4/tcp_tw_reuse;
 echo "1440000" > /proc/sys/net/ipv4/tcp_max_tw_buckets;
 echo "57344 57344 524288" > /proc/sys/net/ipv4/tcp_mem;
@@ -90,6 +89,13 @@ echo "20480" > /proc/sys/net/core/optmem_max;
 echo "2500" > /proc/sys/net/core/netdev_max_backlog;
 echo "50" > /proc/sys/net/unix/max_dgram_qlen;
 
+mem=`free|grep Mem | awk '{print $2}'`;
+
+if [ "$mem" -lt 512000 ];then
+    echo "0" > /proc/sys/net/ipv4/tcp_timestamps;	
+else 
+	echo "1" > /proc/sys/net/ipv4/tcp_timestamps;
+fi;
 
 
 
