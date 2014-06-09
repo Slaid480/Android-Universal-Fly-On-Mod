@@ -60,8 +60,6 @@ echo "6144" > /proc/sys/net/ipv4/udp_wmem_min;
 echo "1" > /proc/sys/net/ipv4/tcp_rfc1337;
 echo "0" > /proc/sys/net/ipv4/ip_no_pmtu_disc;
 echo "0" > /proc/sys/net/ipv4/tcp_ecn;
-echo "6144 87380 2097152" > /proc/sys/net/ipv4/tcp_wmem;
-echo "6144 87380 2097152" > /proc/sys/net/ipv4/tcp_rmem;
 echo "1" > /proc/sys/net/ipv4/tcp_fack;
 echo "2" > /proc/sys/net/ipv4/tcp_synack_retries;
 echo "2" > /proc/sys/net/ipv4/tcp_syn_retries;
