@@ -125,6 +125,11 @@ echo "NO_GENTLE_FAIR_SLEEPERS" > /sys/kernel/debug/sched_features;
 echo "NO_NEW_FAIR_SLEEPERS" > /sys/kernel/debug/sched_features;
 echo "NO_NORMALIZED_SLEEPER" > /sys/kernel/debug/sched_features;
 
+#disables normalized sleeper
+if [ -e /sys/kernel/debug/sched_features ]
+then
+ echo NO_NORMALIZED_SLEEPER > /sys/kernel/debug/sched_features
+fi
 
 
 # VM Tweaks
@@ -142,6 +147,15 @@ echo 3000 > /proc/sys/vm/dirty_expire_centisecs;
 echo 500 > /proc/sys/vm/dirty_writeback_centisecs;
 echo "5120" > /proc/sys/vm/min_free_kbytes;
 echo "0" > /proc/sys/vm/oom_kill_allocating_task;
+
+if [ -e /proc/sys/vm/dirty_writeback_centisecs ]
+then
+ echo 27640520 > /proc/sys/vm/dirty_writeback_centisecs
+fi
+if [ -e /proc/sys/vm/dirty_expire_centisecs ]
+then
+ echo 0 > /proc/sys/vm/dirty_expire_centisecs
+fi
 
  #sysctl -w kernel.msgmni=1024;
  
@@ -170,6 +184,29 @@ echo "268435456" > /proc/sys/kernel/shmmax;
 echo "2097152" > /proc/sys/kernel/shmall;
 echo "4096" > /proc/sys/kernel/shmmni;
 echo "2048" > /proc/sys/kernel/msgmni;
+if [ -e /proc/sys/fs/lease-break-time ]
+then 
+ echo 10 > /proc/sys/fs/lease-break-time
+fi
+
+# Kernel Tweaks 
+if [ -e /proc/sys/kernel/softlockup_panic ]
+then 
+ echo 0 > /proc/sys/kernel/softlockup_panic
+fi
+if [ -e /proc/sys/kernel/hung_task_timeout_secs ]
+then 
+ echo 0 > /proc/sys/kernel/hung_task_timeout_secs
+fi
+if [ -e /proc/sys/kernel/panic_on_oops ]
+then 
+ echo 0 > /proc/sys/kernel/panic_on_oops
+fi
+if [ -e /proc/sys/kernel/panic ]
+then 
+ echo 0 > /proc/sys/kernel/panic
+fi
+
 
 # I/O Tweaks
 sysctl -w kernel.sched_min_granularity_ns=200000;
