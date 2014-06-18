@@ -171,6 +171,15 @@ echo "2097152" > /proc/sys/kernel/shmall;
 echo "4096" > /proc/sys/kernel/shmmni;
 echo "2048" > /proc/sys/kernel/msgmni;
 
+# I/O Tweaks
+sysctl -w kernel.sched_min_granularity_ns=200000;
+sysctl -w kernel.sched_latency_ns=400000;
+sysctl -w kernel.sched_wakeup_granularity_ns=100000;
+#echo 200000 > /proc/sys/kernel/sched_min_granularity_ns;
+#echo 400000 > /proc/sys/kernel/sched_latency_ns;
+#echo 100000 > /proc/sys/kernel/sched_wakeup_granularity_ns;
+
+
 
 # End of fly_engine script
 echo "fly_engine Tweaks applied successfully,Enjoy!!"
