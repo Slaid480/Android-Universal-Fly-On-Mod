@@ -1,9 +1,9 @@
 #!/system/bin/sh
 # Automatic ZipAlign for Fly-On Mod� by Slaid480
-# ZipAlign files in /data that have not been previously
+# Zipalign files in /data that have not been previously
 
 
-#============ Copyright (C) 2013 Salah Abouabdallah(Slaid480)===========#
+#============ Copyright (C) 2014 Salah Abouabdallah(Slaid480)===========#
  
 #  This program is free software: you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
@@ -18,15 +18,29 @@
  
 #=======================================================================#
 
-#Interval between ZipAlign runs, in seconds, 108000=30 hours
+LOG_FILE=/data/Fly-On/10zipaligndata.log
+ #Interval between ZipAlign runs, in seconds, 108000=30 hours
 RUN_EVERY=108000
 
-LOG_FILE=/data/Fly-On/10zipaligndata.log
-    if [ -e $LOG_FILE ]; then
-      rm $LOG_FILE;
-    fi;
+ # Get the last modify date of the Log file, if the file does not exist, set value to 0
+if [ -e $LOG_FILE ]; then
+	LASTRUN=`stat -t $LOG_FILE | awk '{print $14}'`
+else
+	LASTRUN=0
+fi;
 
+# Get current date in epoch format
+CURRDATE=`date +%s`
 
+# Check the interval
+INTERVAL=$(expr $CURRDATE - $LASTRUN)
+
+# If interval is more than the set one, then run the main script
+if [ $INTERVAL -gt $RUN_EVERY ];
+then
+	if [ -e $LOG_FILE ]; then
+		rm $LOG_FILE;
+	fi;   
 
 echo "Starting Automatic ZipAlign $( date +"%m-%d-%Y %H:%M:%S" )" | tee -a $LOG_FILE;
     for apk in /data/app/*.apk ; do
@@ -47,4 +61,4 @@ echo "Starting Automatic ZipAlign $( date +"%m-%d-%Y %H:%M:%S" )" | tee -a $LOG_
        done;
 	   
 
-echo "Automatic ZipAlign finished at $( date +"%m-%d-%Y %H:%M:%S" )" | tee -a $LOG_FILE;
+echo "Automatic data Zipalign finished at $( date +"%m-%d-%Y %H:%M:%S" )" | tee -a $LOG_FILE;
