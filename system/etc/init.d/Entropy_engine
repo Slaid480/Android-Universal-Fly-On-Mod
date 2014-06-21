@@ -1,0 +1,42 @@
+#!/system/bin/sh
+#=====================================================
+#=====================================================
+#=== Fly-On Mod� Entropy engine by Slaid480@XDA ====
+#=====================================================
+#=====================================================
+
+#============ Copyright (C) 2014 Salah Abouabdallah(Slaid480)===========#
+ 
+#  This program is free software: you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+ 
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+#  GNU General Public License for more details.
+ 
+#  You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ 
+#=======================================================================#
+
+FLY=/data/Fly-On/01entropy.log
+
+busybox rm -f $FLY
+busybox touch $FLY
+
+if pgrep qrngd > /dev/null; then
+  echo "qrngd already running! entropy engine will not be started!" >> $FLY
+  exit 1
+fi
+
+if [ -e /system/bin/qrngd -o -e /system/xbin/qrngd ]; then
+  echo "qrngd found in /system! enropy engine will not be started!" >> $FLY
+  exit
+fi
+
+rngd -t 2 -T 1 -s 256 --fill-watermark=80%
+sleep 2
+echo -8 > /proc/$(pgrep rngd)/oom_adj
+renice 5 `pidof rngd`
+

@@ -1,11 +1,11 @@
 #!/system/bin/sh
-#===================================================
-#===================================================
-#=== Fly-On Mod™ entropy script by Slaid480@XDA ====
-#===================================================
-#===================================================
+#=====================================================
+#=====================================================
+#=== Fly-On Mod� Entropy engine by Slaid480@XDA ====
+#=====================================================
+#=====================================================
 
-#======== Copyright (C) 2013 Salah Abouabdallah(Slaid480)==============#
+#============ Copyright (C) 2014 Salah Abouabdallah(Slaid480)===========#
  
 #  This program is free software: you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
@@ -20,19 +20,23 @@
  
 #=======================================================================#
 
-
-FLY=/data/Fly-On/01entropy.log;
+FLY=/data/Fly-On/01entropy.log
 
 busybox rm -f $FLY
 busybox touch $FLY
 
-echo "# Fly-On LOGGING ENGINE" | tee -a $FLY
-echo "" | tee -a $FLY
-echo "$( date +"%m-%d-%Y %H:%M:%S" ) Setting entropy values & activating 'rngd' binary... " | tee -a $FLY;
+if pgrep qrngd > /dev/null; then
+  echo "qrngd already running! entropy engine will not be started!" >> $FLY
+  exit 1
+fi
 
-rngd -s 1024 -t 2 -W 75
-echo "-14" >> /proc/$(pgrep rngd)/oom_adj
-renice 4 `pidof rngd`
+if [ -e /system/bin/qrngd -o -e /system/xbin/qrngd ]; then
+  echo "qrngd found in /system! entropy engine will not be started!" >> $FLY
+  exit
+fi
 
-echo "" | tee -a $FLY
-echo "$( date +"%m-%d-%Y %H:%M:%S" ) Entropy values have been set & 'rngd' binary is activated!!!" | tee -a $FLY;
+rngd -t 2 -T 1 -s 256 --fill-watermark=80%
+sleep 2
+echo -8 > /proc/$(pgrep rngd)/oom_adj
+renice 5 `pidof rngd`
+
