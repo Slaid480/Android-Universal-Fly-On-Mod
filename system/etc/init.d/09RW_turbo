@@ -33,6 +33,15 @@ STL=`ls -d /sys/block/stl*`;
 BML=`ls -d /sys/block/bml*`;
 MMC=`ls -d /sys/block/mmc*`;
 
+# I/O Tweaks
+
+sysctl -w kernel.sched_min_granularity_ns=200000;
+sysctl -w kernel.sched_latency_ns=400000;
+sysctl -w kernel.sched_wakeup_granularity_ns=100000;
+#echo 200000 > /proc/sys/kernel/sched_min_granularity_ns;
+#echo 400000 > /proc/sys/kernel/sched_latency_ns;
+#echo 100000 > /proc/sys/kernel/sched_wakeup_granularity_ns;
+
 # Tweak non-rotating storage; 
 for i in $STL $BML $MMC;
 do

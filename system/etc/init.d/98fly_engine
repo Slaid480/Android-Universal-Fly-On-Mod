@@ -35,13 +35,13 @@ echo "$( date +"%m-%d-%Y %H:%M:%S" )  applying fly_engine tweaks..." | tee -a $F
 # Tweaking processes at wake
 
 #    renice -1 `pidof com.android.phone`;   
-#    renice -1 `pidof com.android.mms`; # Text message app
-#    renice -1 `pidof com.swype.android.inputmethod`; # Keyboard
-#    renice -1 `pidof com.sec.android.app.controlpanel`; # Task manager
-#    renice -1 `pidof com.android.systemui`; # Status bar
-#    renice -1 `pidof com.android.settings`; # Settings menu
-#    renice -1 `pidof com.android.vending`; # Market app
-#    renice -1 `pidof com.sec.android.app.camera`; # Camera app
+#    renice -1 `pidof com.android.mms`; 
+#    renice -1 `pidof com.swype.android.inputmethod`; 
+#    renice -1 `pidof com.sec.android.app.controlpanel`; 
+#    renice -1 `pidof com.android.systemui`; 
+#    renice -1 `pidof com.android.settings`; 
+#    renice -1 `pidof com.android.vending`; 
+#    renice -1 `pidof com.sec.android.app.camera`; 
 #    renice -1 `pidof android.process.acore`;
 #    renice -1 `pidof kondemand/0`;
 #    renice -1 `pidof ksmartass_up/0`;
@@ -203,16 +203,6 @@ if [ -e /proc/sys/kernel/panic ]
 then 
  echo 0 > /proc/sys/kernel/panic
 fi
-
-
-# I/O Tweaks
-sysctl -w kernel.sched_min_granularity_ns=200000;
-sysctl -w kernel.sched_latency_ns=400000;
-sysctl -w kernel.sched_wakeup_granularity_ns=100000;
-#echo 200000 > /proc/sys/kernel/sched_min_granularity_ns;
-#echo 400000 > /proc/sys/kernel/sched_latency_ns;
-#echo 100000 > /proc/sys/kernel/sched_wakeup_granularity_ns;
-
 
 
 # End of fly_engine script
