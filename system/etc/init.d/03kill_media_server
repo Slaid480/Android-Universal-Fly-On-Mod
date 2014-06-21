@@ -16,5 +16,17 @@
  
 #=======================================================================#
 
+FLY=/data/Fly-On/04mediakiller.log
+
+busybox rm -f $FLY
+busybox touch $FLY
+
+echo "# Fly-On Mod� LOGGING ENGINE" | tee -a $FLY
+echo "" | tee -a $FLY
+echo "$( date +"%m-%d-%Y %H:%M:%S" ) Media killer service running..." | tee -a $FLY;
+
 killall -9 android.process.media
 killall -9 mediaserver
+
+echo "" | tee -a $FLY
+echo "$( date +"%m-%d-%Y %H:%M:%S" ) Killing media server is done!" | tee -a $FLY;
