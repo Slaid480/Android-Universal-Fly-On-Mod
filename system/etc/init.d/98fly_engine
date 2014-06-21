@@ -2,7 +2,7 @@
 # ===========================================
 # ===========================================
 # ========== Fly_engine | Fly-On Mod� =======
-# ========== By Slaid480@XDA 2013 ===========
+# ========== By Slaid480@XDA 2014 ===========
 # ===========================================
 # ===========================================
 
@@ -174,10 +174,7 @@ fi;
 
 # FS Tweaks
 echo "64000" > /proc/sys/kernel/msgmax;
-echo "30" > /proc/sys/kernel/panic;
-echo "0" > /proc/sys/kernel/panic_on_oops;
 echo "5000" > /proc/sys/kernel/threads-max;
-echo "10" > /proc/sys/fs/lease-break-time;
 echo "65536" > /proc/sys/fs/file-max;
 echo "500 512000 64 2048" > /proc/sys/kernel/sem;
 echo "268435456" > /proc/sys/kernel/shmmax;
