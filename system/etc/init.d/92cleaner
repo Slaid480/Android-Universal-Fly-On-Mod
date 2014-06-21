@@ -22,21 +22,14 @@
 RUN_EVERY=172800
 
 
-LOG_FILE=/data/Fly-On/08cleaner.log
-LOG_FILEZ=/data/Fly-On/08cleaner.log
-    if [ -e $LOG_FILE ]; then
-        rm $LOG_FILE;
-    fi;
+FLY=/data/Fly-On/08cleaner.log
 
-    if [ -e $LOG_FILEZ ]; then
-        rm $LOG_FILEZ;
-    fi;
+busybox rm -f $FLY
+busybox touch $FLY
 
-
-#running the script...
-echo "start at:"
-$( date +"%m-%d-%Y %H:%M:%S" )
-==========================" | tee -a $LOG_FILE;
+echo "# Fly-On Mod™ LOGGING ENGINE" | tee -a $FLY
+echo "" | tee -a $FLY
+echo "$( date +"%m-%d-%Y %H:%M:%S" ) Cleaner script is running..." | tee -a $FLY;
 
 
 # cleaner
@@ -56,31 +49,29 @@ export sampling_rate=10000
 export up_threshold=80
 
 
-echo "memory cleaner--------[OK]" | tee -a $LOG_FILE;
+echo "memory cleaner--------[OK]" | tee -a $FLY;
 
 if [ -e /data/anr/*.* ]; then
-  echo "-anr not cleaned" | tee -a $LOG_FILE; else
-  echo "-anr cleaned" | tee -a $LOG_FILE
+  echo "-anr not cleaned" | tee -a $FLY; else
+  echo "-anr cleaned" | tee -a $FLY
 fi;
 if [ -e /data/local/tmp/*.* ]; then
-  echo "-local/tmp not cleaned" | tee -a $LOG_FILE; else
-  echo "-local/tmp cleaned" | tee -a $LOG_FILE
+  echo "-local/tmp not cleaned" | tee -a $FLY; else
+  echo "-local/tmp cleaned" | tee -a $FLY
 fi;
 if [ -e /data/cache/*.* ]; then
-  echo "-cache not cleaned" | tee -a $LOG_FILE; else
-  echo "-cache cleaned" | tee -a $LOG_FILE
+  echo "-cache not cleaned" | tee -a $FLY; else
+  echo "-cache cleaned" | tee -a $FLY
 fi;
 if [ -e /data/last_log/*.* ]; then
-  echo "-log not cleaned" | tee -a $LOG_FILE; else
-  echo "-log cleaned" | tee -a $LOG_FILE
+  echo "-log not cleaned" | tee -a $FLY; else
+  echo "-log cleaned" | tee -a $FLY
 fi;
 if [ -e /data/tombstones/*.* ]; then
-  echo "-tombstones not cleaned" | tee -a $LOG_FILE; else
-  echo "-tombstones cleaned" | tee -a $LOG_FILE
+  echo "-tombstones not cleaned" | tee -a $FLY; else
+  echo "-tombstones cleaned" | tee -a $FLY
 fi;
 
-# end
-echo "==========================
-done at:
-$( date +"%m-%d-%Y %H:%M:%S" )
- Thanks to -CALIBAN666@XDA-" | tee -a $LOG_FILE;
+
+echo "" | tee -a $FLY
+echo "$( date +"%m-%d-%Y %H:%M:%S" ) All junk directories are now cleaned,Thanks to -CALIBAN666@XDA-!" | tee -a $FLY;
