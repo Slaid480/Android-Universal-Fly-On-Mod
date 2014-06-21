@@ -1,7 +1,7 @@
 #!/system/bin/sh
 #=====================================================
 #=====================================================
-#=== Fly-On Mod� SDCard speed Fix by Slaid480@XDA ====
+#=== Fly-On Mod� RW_turbo script by Slaid480@XDA =====
 #=====================================================
 #=====================================================
 
@@ -20,15 +20,59 @@
  
 #=======================================================================#
 
-FLY=/data/Fly-On/03sdcardspeedfix.log
+FLY=/data/Fly-On/03RW_turbo.log
 
 busybox rm -f $FLY
 busybox touch $FLY
 
 echo "# Fly-On Mod� LOGGING ENGINE" | tee -a $FLY
 echo "" | tee -a $FLY
-echo "$( date +"%m-%d-%Y %H:%M:%S" ) Tweaking SDCard read_ahead cache..." | tee -a $FLY;
+echo "$( date +"%m-%d-%Y %H:%M:%S" ) Applying I/O Tweaks..." | tee -a $FLY;
 
+STL=`ls -d /sys/block/stl*`;
+BML=`ls -d /sys/block/bml*`;
+MMC=`ls -d /sys/block/mmc*`;
+
+# Tweak non-rotating storage; 
+for i in $STL $BML $MMC;
+do
+
+	if [ -e $i/queue/rotational ]; 
+	then
+		echo 0 > $i/queue/rotational; 
+	fi;
+	if [ -e $i/queue/nr_requests ];
+	then
+		echo 8192 > $i/queue/nr_requests; 
+	fi;
+	
+# I/O Schedulers Tweaks
+	
+	if [ -e $i/queue/iosched/fifo_batch ];
+	then
+		echo 1 > $i/queue/iosched/fifo_batch;
+	fi;
+	if [ -e $i/queue/iosched/writes_starved ];
+	then
+		echo 1 > $i/queue/iosched/writes_starved;
+	fi;
+	
+#  Tweak readahead; 
+	if [ -e $i/queue/read_ahead_kb ];
+	then
+		echo "256" >  $i/queue/read_ahead_kb;
+	fi;	
+	
+#  reduce overhead (disable iostats)
+	if [ -e $i/queue/iostats ];
+	then
+		echo "0" > $i/queue/iostats;
+	fi;	
+	
+echo "" | tee -a $FLY
+echo "$( date +"%m-%d-%Y %H:%M:%S" ) Tweaking SDCard read_ahead cache..." | tee -a $FLY;	
+	
+	
 READ_AHEAD_KB="2048"
 
 if [ -e /sys/devices/virtual/bdi/0:18/read_ahead_kb ]; then
@@ -89,4 +133,4 @@ fi
 
 
 echo "" | tee -a $FLY
-echo "$( date +"%m-%d-%Y %H:%M:%S" ) SDCard tweaking done!" | tee -a $FLY;
+echo "$( date +"%m-%d-%Y %H:%M:%S" ) SDCard and I/O tweaking done!" | tee -a $FLY;
