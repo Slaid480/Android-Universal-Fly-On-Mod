@@ -156,39 +156,6 @@ echo "$( date +"%m-%d-%Y %H:%M:%S" ) Tweaking CPU governor tweaks..." | tee -a $
   fi;
 
 
-# lulzactive
-
-  if [ -e /sys/devices/system/cpu/cpufreq/lulzactive/inc_cpu_load ]; then
-
-    echo "85" > /sys/devices/system/cpu/cpufreq/lulzactive/inc_cpu_load;
-#    if [ "`cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq`" -eq 200000 ] && [ "`cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq`" -eq 1200000 ]; then
-#      echo "4" > /sys/devices/system/cpu/cpufreq/lulzactive/pump_up_step;
-
-#    elif [ "`cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq`" -eq 200000 ] && [ "`cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq`" -eq 1400000 ]; then
-#      echo "5" > /sys/devices/system/cpu/cpufreq/lulzactive/pump_up_step;
-#    elif [ "`cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq`" -eq 200000 ] && [ "`cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq`" -eq 1600000 ]; then
-#      echo "6" > /sys/devices/system/cpu/cpufreq/lulzactive/pump_up_step;
-#    elif [ "`cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq`" -eq 100000 ] && [ "`cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq`" -eq 1200000 ]; then
-#      echo "5" > /sys/devices/system/cpu/cpufreq/lulzactive/pump_up_step;
-#    elif [ "`cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq`" -eq 100000 ] && [ "`cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq`" -eq 1400000 ]; then
-#      echo "6" > /sys/devices/system/cpu/cpufreq/lulzactive/pump_up_step;
-#    elif [ "`cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq`" -eq 100000 ] && [ "`cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq`" -eq 1600000 ]; then
-#      echo "7" > /sys/devices/system/cpu/cpufreq/lulzactive/pump_up_step;
-#    elif [ "`cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq`" -eq 100000 ] && [ "`cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq`" -eq 800000 ]; then
-#      echo "3" > /sys/devices/system/cpu/cpufreq/lulzactive/pump_up_step;
-#    elif [ "`cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq`" -eq 100000 ] && [ "`cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq`" -eq 1000000 ]; then
-#      echo "4" > /sys/devices/system/cpu/cpufreq/lulzactive/pump_up_step;
-#    elif [ "`cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq`" -eq 200000 ] && [ "`cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq`" -eq 800000 ]; then
-#      echo "2" > /sys/devices/system/cpu/cpufreq/lulzactive/pump_up_step;
-#    elif [ "`cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq`" -eq 200000 ] && [ "`cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq`" -eq 1000000 ]; then
-#      echo "3" > /sys/devices/system/cpu/cpufreq/lulzactive/pump_up_step;
-#    fi;
-    echo "1" > /sys/devices/system/cpu/cpufreq/lulzactive/pump_down_step;
-#    echo "4" > /sys/devices/system/cpu/cpufreq/lulzactive/screen_off_min_step;
-  fi;
-
-
-
 # Pegasusq
 
 
@@ -215,6 +182,32 @@ echo "$( date +"%m-%d-%Y %H:%M:%S" ) Tweaking CPU governor tweaks..." | tee -a $
     echo "5" > /sys/devices/system/cpu/cpu1/cpufreq/pegasusq/cpu_up_rate;
     echo "20" > /sys/devices/system/cpu/cpu1/cpufreq/pegasusq/cpu_down_rate;
     echo "100000" > /sys/devices/system/cpu/cpu1/cpufreq/pegasusq/freq_for_responsiveness;
+
+
+  fi;
+    if [ -e /sys/devices/system/cpu/cpu2/cpufreq/pegasusq/up_threshold ]; then
+    echo "85" > /sys/devices/system/cpu/cpu2/cpufreq/pegasusq/up_threshold;
+    echo "10" > /sys/devices/system/cpu/cpu2/cpufreq/pegasusq/down_differential;
+    #echo "1" > /sys/devices/system/cpu/cpu2/cpufreq/pegasusq/io_is_busy;
+    echo "1" > /sys/devices/system/cpu/cpu2/cpufreq/pegasusq/sampling_down_factor;
+    echo "20000" > /sys/devices/system/cpu/cpu2/cpufreq/pegasusq/sampling_rate;
+    echo "100" > /sys/devices/system/cpu/cpu2/cpufreq/pegasusq/freq_step;
+    echo "5" > /sys/devices/system/cpu/cpu2/cpufreq/pegasusq/cpu_up_rate;
+    echo "20" > /sys/devices/system/cpu/cpu2/cpufreq/pegasusq/cpu_down_rate;
+    echo "100000" > /sys/devices/system/cpu/cpu2/cpufreq/pegasusq/freq_for_responsiveness;
+
+
+  fi;
+    if [ -e /sys/devices/system/cpu/cpu3/cpufreq/pegasusq/up_threshold ]; then
+    echo "85" > /sys/devices/system/cpu/cpu3/cpufreq/pegasusq/up_threshold;
+    echo "10" > /sys/devices/system/cpu/cpu3/cpufreq/pegasusq/down_differential;
+    #echo "1" > /sys/devices/system/cpu/cpu3/cpufreq/pegasusq/io_is_busy;
+    echo "1" > /sys/devices/system/cpu/cpu3/cpufreq/pegasusq/sampling_down_factor;
+    echo "20000" > /sys/devices/system/cpu/cpu3/cpufreq/pegasusq/sampling_rate;
+    echo "100" > /sys/devices/system/cpu/cpu3/cpufreq/pegasusq/freq_step;
+    echo "5" > /sys/devices/system/cpu/cpu3/cpufreq/pegasusq/cpu_up_rate;
+    echo "20" > /sys/devices/system/cpu/cpu3/cpufreq/pegasusq/cpu_down_rate;
+    echo "100000" > /sys/devices/system/cpu/cpu3/cpufreq/pegasusq/freq_for_responsiveness;
 
 
   fi;
@@ -256,6 +249,26 @@ echo "$( date +"%m-%d-%Y %H:%M:%S" ) Tweaking CPU governor tweaks..." | tee -a $
     echo "20000" > /sys/devices/system/cpu/cpu1/cpufreq/hotplug/sampling_rate;
 
   fi;
+  if [ -e /sys/devices/system/cpu/cpu2/cpufreq/hotplug/up_threshold ]; then
+    echo "85" > /sys/devices/system/cpu/cpu2/cpufreq/hotplug/up_threshold;
+    echo "40" > /sys/devices/system/cpu/cpu2/cpufreq/hotplug/down_threshold;
+    echo "5" > /sys/devices/system/cpu/cpu2/cpufreq/hotplug/hotplug_in_sampling_periods;
+    echo "20" > /sys/devices/system/cpu/cpu2/cpufreq/hotplug/hotplug_out_sampling_periods;
+    echo "10" > /sys/devices/system/cpu/cpu2/cpufreq/hotplug/down_differential;
+    #echo "1" > /sys/devices/system/cpu/cpu2/cpufreq/hotplug/io_is_busy;
+    echo "20000" > /sys/devices/system/cpu/cpu2/cpufreq/hotplug/sampling_rate;
+
+  fi;
+  if [ -e /sys/devices/system/cpu/cpu3/cpufreq/hotplug/up_threshold ]; then
+    echo "85" > /sys/devices/system/cpu/cpu3/cpufreq/hotplug/up_threshold;
+    echo "40" > /sys/devices/system/cpu/cpu3/cpufreq/hotplug/down_threshold;
+    echo "5" > /sys/devices/system/cpu/cpu3/cpufreq/hotplug/hotplug_in_sampling_periods;
+    echo "20" > /sys/devices/system/cpu/cpu3/cpufreq/hotplug/hotplug_out_sampling_periods;
+    echo "10" > /sys/devices/system/cpu/cpu3/cpufreq/hotplug/down_differential;
+    #echo "1" > /sys/devices/system/cpu/cpu3/cpufreq/hotplug/io_is_busy;
+    echo "20000" > /sys/devices/system/cpu/cpu3/cpufreq/hotplug/sampling_rate;
+
+  fi;
   if [ -e /sys/devices/system/cpu/cpufreq/hotplug/up_threshold ]; then
 
     echo "85" > /sys/devices/system/cpu/cpufreq/hotplug/up_threshold;
@@ -266,6 +279,59 @@ echo "$( date +"%m-%d-%Y %H:%M:%S" ) Tweaking CPU governor tweaks..." | tee -a $
     #echo "1" > /sys/devices/system/cpu/cpufreq/hotplug/io_is_busy;
     echo "20000" > /sys/devices/system/cpu/cpufreq/hotplug/sampling_rate;
   fi;
+  
+# abyssplug
+
+
+	if [ -e /sys/devices/system/cpu/cpu0/cpufreq/abyssplug/up_threshold ]; then
+		echo "85" > /sys/devices/system/cpu/cpu0/cpufreq/abyssplug/up_threshold;
+		echo "40" > /sys/devices/system/cpu/cpu0/cpufreq/abyssplug/down_threshold;
+		echo "5" > /sys/devices/system/cpu/cpu0/cpufreq/abyssplug/hotplug_in_sampling_periods;
+		echo "20" > /sys/devices/system/cpu/cpu0/cpufreq/abyssplug/hotplug_out_sampling_periods;
+		echo "10" > /sys/devices/system/cpu/cpu0/cpufreq/abyssplug/down_differential;
+		#echo "1" > /sys/devices/system/cpu/cpu0/cpufreq/abyssplug/io_is_busy;
+		echo "20000" > /sys/devices/system/cpu/cpu0/cpufreq/abyssplug/sampling_rate;
+	fi;		
+	if [ -e /sys/devices/system/cpu/cpu1/cpufreq/abyssplug/up_threshold ]; then
+		echo "85" > /sys/devices/system/cpu/cpu1/cpufreq/abyssplug/up_threshold;
+		echo "40" > /sys/devices/system/cpu/cpu1/cpufreq/abyssplug/down_threshold;
+		echo "5" > /sys/devices/system/cpu/cpu1/cpufreq/abyssplug/hotplug_in_sampling_periods;
+		echo "20" > /sys/devices/system/cpu/cpu1/cpufreq/abyssplug/hotplug_out_sampling_periods;
+		echo "10" > /sys/devices/system/cpu/cpu1/cpufreq/abyssplug/down_differential;
+		#echo "1" > /sys/devices/system/cpu/cpu1/cpufreq/abyssplug/io_is_busy;
+		echo "20000" > /sys/devices/system/cpu/cpu1/cpufreq/abyssplug/sampling_rate;
+		
+	fi;
+	if [ -e /sys/devices/system/cpu/cpu2/cpufreq/abyssplug/up_threshold ]; then
+		echo "85" > /sys/devices/system/cpu/cpu2/cpufreq/abyssplug/up_threshold;
+		echo "40" > /sys/devices/system/cpu/cpu2/cpufreq/abyssplug/down_threshold;
+		echo "5" > /sys/devices/system/cpu/cpu2/cpufreq/abyssplug/hotplug_in_sampling_periods;
+		echo "20" > /sys/devices/system/cpu/cpu2/cpufreq/abyssplug/hotplug_out_sampling_periods;
+		echo "10" > /sys/devices/system/cpu/cpu2/cpufreq/abyssplug/down_differential;
+		#echo "1" > /sys/devices/system/cpu/cpu2/cpufreq/abyssplug/io_is_busy;
+		echo "20000" > /sys/devices/system/cpu/cpu2/cpufreq/abyssplug/sampling_rate;
+		
+	fi;
+	if [ -e /sys/devices/system/cpu/cpu3/cpufreq/abyssplug/up_threshold ]; then
+		echo "85" > /sys/devices/system/cpu/cpu3/cpufreq/abyssplug/up_threshold;
+		echo "40" > /sys/devices/system/cpu/cpu3/cpufreq/abyssplug/down_threshold;
+		echo "5" > /sys/devices/system/cpu/cpu3/cpufreq/abyssplug/hotplug_in_sampling_periods;
+		echo "20" > /sys/devices/system/cpu/cpu3/cpufreq/abyssplug/hotplug_out_sampling_periods;
+		echo "10" > /sys/devices/system/cpu/cpu3/cpufreq/abyssplug/down_differential;
+		#echo "1" > /sys/devices/system/cpu/cpu3/cpufreq/abyssplug/io_is_busy;
+		echo "20000" > /sys/devices/system/cpu/cpu3/cpufreq/abyssplug/sampling_rate;
+		
+	fi;
+	if [ -e /sys/devices/system/cpu/cpufreq/abyssplug/up_threshold ]; then
+
+		echo "85" > /sys/devices/system/cpu/cpufreq/abyssplug/up_threshold;
+		echo "40" > /sys/devices/system/cpu/cpufreq/abyssplug/down_threshold;
+		echo "5" > /sys/devices/system/cpu/cpufreq/abyssplug/hotplug_in_sampling_periods;
+		echo "20" > /sys/devices/system/cpu/cpufreq/abyssplug/hotplug_out_sampling_periods;
+		echo "10" > /sys/devices/system/cpu/cpufreq/abyssplug/down_differential;
+		#echo "1" > /sys/devices/system/cpu/cpufreq/abyssplug/io_is_busy;
+		echo "20000" > /sys/devices/system/cpu/cpufreq/abyssplug/sampling_rate;
+	fi;
   
 echo "" | tee -a $FLY
 echo "$( date +"%m-%d-%Y %H:%M:%S" ) CPU Governor tweaking done!" | tee -a $FLY;
