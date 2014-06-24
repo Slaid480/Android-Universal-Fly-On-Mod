@@ -31,7 +31,7 @@ if pgrep qrngd > /dev/null; then
 fi
 
 if [ -e /system/bin/qrngd -o -e /system/xbin/qrngd ]; then
-  echo "qrngd found in /system! enropy engine will not be started!" >> $FLY
+  echo "qrngd found in /system! entropy engine will not be started!" >> $FLY
   exit
 fi
 
