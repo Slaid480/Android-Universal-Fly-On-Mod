@@ -1,6 +1,6 @@
 #!/system/bin/sh
-#script by Pikachu01 and improved by Slaid480 for Fly-On Mod™ !
-#Optimize SQlite databases of apps
+#Fly-On Modï¿½ V5.0
+#VACUUM and REINDEX databases optimizing
 
 #============ Copyright (C) 2014 Salah Abouabdallah(Slaid480)===========#
  
@@ -17,60 +17,57 @@
  
 #=======================================================================#
 
+# Frequent inserts, updates, and deletes can cause the database file to become fragmented - where data for a single table or index is scattered around the database file.
+# Running VACUUM ensures that each table and index is largely stored contiguously within the database file.
+# In some cases, VACUUM may also reduce the number of partially filled pages in the database, reducing the size of the database file further.
+# SQLite3 binary in /system/xbin is required!
+
+
 FLY=/data/Fly-On/07sqlite_optimize.log
-
-busybox rm -f $FLY
-busybox touch $FLY
-
-echo "# Fly-On Mod™ LOGGING ENGINE" | tee -a $FLY
-echo "" | tee -a $FLY
-echo "$( date +"%m-%d-%Y %H:%M:%S" ) iptimizing and defragging your database files,please wait..." | tee -a $FLY;
 
 #Interval between Optimize SQlite runs, in seconds, 108000=30 hours
 RUN_EVERY=108000
 
-
-# echo "";
-echo "*********************************************";
-echo "Optimizing and defragging your database files (*.db)";
-echo "Ignore the 'database disk image is malformed' error";
-echo "Ignore the 'no such collation sequence' error";
-echo "*********************************************";
-echo "";
-
-for i in \
-`busybox find /data -iname "*.db"`;
-do \
-  /system/xbin/sqlite3 $i 'VACUUM;';
-  /system/xbin/sqlite3 $i 'REINDEX;';
-done;
-
-if [ -d "/dbdata" ]; then
-  for i in \
-  `busybox find /dbdata -iname "*.db"`;
-  do \
-    /system/xbin/sqlite3 $i 'VACUUM;';
-    /system/xbin/sqlite3 $i 'REINDEX;';
-  done;
+# Get the last modify date of the Log file, if the file does not exist, set value to 0
+if [ -e $FLY ]; then
+    LASTRUN=`stat -t $FLY | awk '{print $14}'`
+else
+    LASTRUN=0
 fi;
 
+# Get current date in epoch format
+CURRDATE=`date +%s`
 
-if [ -d "/datadata" ]; then
-  for i in \
-  `busybox find /datadata -iname "*.db"`;
-  do \
-    /system/xbin/sqlite3 $i 'VACUUM;';
-    /system/xbin/sqlite3 $i 'REINDEX;';
-  done;
+# Check the interval
+INTERVAL=$(expr $CURRDATE - $LASTRUN)
+
+# If interval is more than the set one, then run the main script
+if [ $INTERVAL -gt $RUN_EVERY ];
+then
+    if [ -e $FLY ]; then
+        rm $FLY;
+    fi;
+        
+    echo "SQLite database VACUUM and REINDEX started at $( date +"%m-%d-%Y %H:%M:%S" )" | tee -a $FLY;
+
+    for i in `busybox find /d* -iname "*.db"`; do
+        /system/xbin/sqlite3 $i 'VACUUM;';
+        resVac=$?
+        if [ $resVac == 0 ]; then
+            resVac="SUCCESS";
+        else
+            resVac="ERRCODE-$resVac";
+        fi;
+        
+        /system/xbin/sqlite3 $i 'REINDEX;';
+        resIndex=$?
+        if [ $resIndex == 0 ]; then
+            resIndex="SUCCESS";
+        else
+            resIndex="ERRCODE-$resIndex";
+        fi;
+        echo "Database $i:  VACUUM=$resVac  REINDEX=$resIndex" | tee -a $FLY;
+    done
+      
+    echo "SQLite database VACUUM and REINDEX finished at $( date +"%m-%d-%Y %H:%M:%S" )" | tee -a $FLY;
 fi;
-
-
-for i in \
-`busybox find /sdcard -iname "*.db"`;
-do \
-  /system/xbin/sqlite3 $i 'VACUUM;';
-  /system/xbin/sqlite3 $i 'REINDEX;';
-done;
-
-echo "" | tee -a $FLY
-echo "$( date +"%m-%d-%Y %H:%M:%S" ) database files optimization done!" | tee -a $FLY;
