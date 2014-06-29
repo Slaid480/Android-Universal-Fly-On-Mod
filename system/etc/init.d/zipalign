@@ -1,0 +1,130 @@
+#!/system/bin/sh
+#Fly-On Mod� V5.0
+#Zipalign script for apps on /system and /data big thank to blaz1nr
+
+#============ Copyright (C) 2014 Salah Abouabdallah(Slaid480)===========#
+ 
+#  This program is free software: you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+ 
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+#  GNU General Public License for more details.
+ 
+#  You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ 
+#=======================================================================#
+
+#Interval between ZipAlign runs, in seconds, 108000=30 hours
+RUN_EVERY=108000
+
+#Zipalign /Data 
+
+FLY=/data/Fly-On/09zipalign.log
+ZIPALIGNDB=/data/zipalign.db
+
+if [ -e $FLY ]; then
+	rm $FLY;
+fi;
+
+if [ ! -f $ZIPALIGNDB ]; then
+	touch $ZIPALIGNDB;
+fi;
+
+echo "# Fly-On Mod� LOGGING ENGINE" | tee -a $FLY
+echo "" | tee -a $FLY
+echo "Starting Automatic ZipAlign $( date +"%m-%d-%Y %H:%M:%S" )" | tee -a $FLY
+for DIR in /data/app ; do
+  cd $DIR
+  for APK in *.apk ; do
+    if [ $APK -ot $ZIPALIGNDB ] && [ $(grep "$DIR/$APK" $ZIPALIGNDB|wc -l) -gt 0 ] ; then
+      echo "Already checked: $DIR/$APK" | tee -a $FLY
+    else
+      zipalign -c 4 $APK
+      if [ $? -eq 0 ] ; then
+        echo "Already aligned: $DIR/$APK" | tee -a $FLY
+        grep "$DIR/$APK" $ZIPALIGNDB > /dev/null || echo $DIR/$APK >> $ZIPALIGNDB
+      else
+        echo "Now aligning: $DIR/$APK" | tee -a $FLY
+        zipalign -f 4 $APK /cache/$APK
+        busybox mount -o rw,remount /system
+        cp -f -p /cache/$APK $APK
+        busybox rm -f /cache/$APK
+        grep "$DIR/$APK" $ZIPALIGNDB > /dev/null || echo $DIR/$APK >> $ZIPALIGNDB
+      fi
+    fi
+  done
+done
+
+#Zipalign /system 
+
+for DIR in /system/app ; do
+  cd $DIR
+  for APK in *.apk ; do
+    if [ $APK -ot $ZIPALIGNDB ] && [ $(grep "$DIR/$APK" $ZIPALIGNDB|wc -l) -gt 0 ] ; then
+      echo "Already checked: $DIR/$APK" | tee -a $FLY
+    else
+      zipalign -c 4 $APK
+      if [ $? -eq 0 ] ; then
+        echo "Already aligned: $DIR/$APK" | tee -a $FLY
+        grep "$DIR/$APK" $ZIPALIGNDB > /dev/null || echo $DIR/$APK >> $ZIPALIGNDB
+      else
+        echo "Now aligning: $DIR/$APK" | tee -a $FLY
+        zipalign -f 4 $APK /cache/$APK
+        busybox mount -o rw,remount /system
+        cp -f -p /cache/$APK $APK
+        busybox rm -f /cache/$APK
+        grep "$DIR/$APK" $ZIPALIGNDB > /dev/null || echo $DIR/$APK >> $ZIPALIGNDB
+      fi
+    fi
+  done
+done
+
+for DIR in /system/priv-app ; do
+  cd $DIR
+  for APK in *.apk ; do
+    if [ $APK -ot $ZIPALIGNDB ] && [ $(grep "$DIR/$APK" $ZIPALIGNDB|wc -l) -gt 0 ] ; then
+      echo "Already checked: $DIR/$APK" | tee -a $FLY
+    else
+      zipalign -c 4 $APK
+      if [ $? -eq 0 ] ; then
+        echo "Already aligned: $DIR/$APK" | tee -a $FLY
+        grep "$DIR/$APK" $ZIPALIGNDB > /dev/null || echo $DIR/$APK >> $ZIPALIGNDB
+      else
+        echo "Now aligning: $DIR/$APK" | tee -a $FLY
+        zipalign -f 4 $APK /cache/$APK
+        busybox mount -o rw,remount /system
+        cp -f -p /cache/$APK $APK
+        busybox rm -f /cache/$APK
+        grep "$DIR/$APK" $ZIPALIGNDB > /dev/null || echo $DIR/$APK >> $ZIPALIGNDB
+      fi
+    fi
+  done
+done
+
+for DIR in /system/framework ; do
+  cd $DIR
+  for APK in *.apk ; do
+    if [ $APK -ot $ZIPALIGNDB ] && [ $(grep "$DIR/$APK" $ZIPALIGNDB|wc -l) -gt 0 ] ; then
+      echo "Already checked: $DIR/$APK" | tee -a $FLY
+    else
+      zipalign -c 4 $APK
+      if [ $? -eq 0 ] ; then
+        echo "Already aligned: $DIR/$APK" | tee -a $FLY
+        grep "$DIR/$APK" $ZIPALIGNDB > /dev/null || echo $DIR/$APK >> $ZIPALIGNDB
+      else
+        echo "Now aligning: $DIR/$APK" | tee -a $FLY
+        zipalign -f 4 $APK /cache/$APK
+        busybox mount -o rw,remount /system
+        cp -f -p /cache/$APK $APK
+        busybox rm -f /cache/$APK
+        grep "$DIR/$APK" $ZIPALIGNDB > /dev/null || echo $DIR/$APK >> $ZIPALIGNDB
+      fi
+    fi
+  done
+done
+
+touch $ZIPALIGNDB
+echo "Automatic ZipAlign finished at $( date +"%m-%d-%Y %H:%M:%S" )" | tee -a $FLY
