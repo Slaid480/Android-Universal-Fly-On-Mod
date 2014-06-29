@@ -132,31 +132,6 @@ then
 fi
 
 
-# VM Tweaks
-echo "0" > /proc/sys/vm/panic_on_oom;
-echo "35" > /proc/sys/vm/dirty_background_ratio;
-echo "70" > /proc/sys/vm/dirty_ratio;
-echo "10" > /proc/sys/vm/vfs_cache_pressure;
-echo "1" > /proc/sys/vm/overcommit_memory;
-echo "4" > /proc/sys/vm/min_free_order_shift;
-echo "0" > /proc/sys/vm/laptop_mode;
-echo "0" > /proc/sys/vm/block_dump;
-echo "1" > /proc/sys/vm/oom_dump_tasks;
-echo 3 > /proc/sys/vm/page-cluster;
-echo 3000 > /proc/sys/vm/dirty_expire_centisecs;
-echo 500 > /proc/sys/vm/dirty_writeback_centisecs;
-echo "5120" > /proc/sys/vm/min_free_kbytes;
-echo "0" > /proc/sys/vm/oom_kill_allocating_task;
-
-if [ -e /proc/sys/vm/dirty_writeback_centisecs ]
-then
- echo 27640520 > /proc/sys/vm/dirty_writeback_centisecs
-fi
-if [ -e /proc/sys/vm/dirty_expire_centisecs ]
-then
- echo 0 > /proc/sys/vm/dirty_expire_centisecs
-fi
-
  #sysctl -w kernel.msgmni=1024;
  
  mem=`free|grep Mem | awk '{print $2}'`;
@@ -172,19 +147,6 @@ else
 	sysctl -w vm.dirty_ratio=10;
 fi;
 
-# FS Tweaks
-echo "64000" > /proc/sys/kernel/msgmax;
-echo "5000" > /proc/sys/kernel/threads-max;
-echo "65536" > /proc/sys/fs/file-max;
-echo "500 512000 64 2048" > /proc/sys/kernel/sem;
-echo "268435456" > /proc/sys/kernel/shmmax;
-echo "2097152" > /proc/sys/kernel/shmall;
-echo "4096" > /proc/sys/kernel/shmmni;
-echo "2048" > /proc/sys/kernel/msgmni;
-if [ -e /proc/sys/fs/lease-break-time ]
-then 
- echo 10 > /proc/sys/fs/lease-break-time
-fi
 
 # Kernel Tweaks 
 if [ -e /proc/sys/kernel/softlockup_panic ]
