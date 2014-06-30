@@ -1,0 +1,33 @@
+#!/system/bin/sh
+#Fly-On Mod� V5.0
+#Fstrim lag fixer thanks to blaz1nr@XDA
+
+#============ Copyright (C) 2014 Salah Abouabdallah(Slaid480)===========#
+ 
+#  This program is free software: you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+ 
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+#  GNU General Public License for more details.
+ 
+#  You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ 
+#=======================================================================#
+
+#Interval between ZipAlign runs, in seconds, 2592000=1 Month
+RUN_EVERY=2592000
+
+FLY=/data/Fly-On/10fstrim.log
+
+echo "# Fly-On Mod™ LOGGING ENGINE" | tee -a $FLY
+echo "" | tee -a $FLY
+echo "fstrim started at $( date +"%m-%d-%Y %H:%M:%S" )" | tee -a $FLY;
+
+fstrim -v /cache | tee -a $FLY;
+fstrim -v /data | tee -a $FLY;
+fstrim -v /system | tee -a $FLY
+
+echo "fstrim finished at $( date +"%m-%d-%Y %H:%M:%S" )" | tee -a $FLY;
