@@ -112,7 +112,7 @@ set_perm(0, 0, 0755, "/system/etc/init.d/zipalign");
 set_perm(0, 0, 0755, "/system/etc/init.d/ram_manager");
 set_perm(0, 0, 0755, "/system/etc/init.d/91touchscreen");
 set_perm(0, 0, 0755, "/system/etc/init.d/fstrim");
-set_perm(0, 0, 0755, "/system/etc/hosts");
+set_perm(0, 0, 0644, "/system/etc/hosts");
 set_perm(0, 2000, 0755, "/system/bin/Entropy_engine");
 set_perm(0, 2000, 0755, "/system/xbin/rngd");
 set_perm(0, 2000, 0755, "/system/xbin/entro");
