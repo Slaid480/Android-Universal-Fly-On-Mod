@@ -47,6 +47,7 @@ then
     if [ -e $FLY ]; then
         rm $FLY;
     fi;
+	fi;
         
     echo "SQLite database VACUUM and REINDEX started at $( date +"%m-%d-%Y %H:%M:%S" )" | tee -a $FLY;
 

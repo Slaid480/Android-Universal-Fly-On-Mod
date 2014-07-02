@@ -54,6 +54,7 @@ do
 	then
 		echo 8192 > $i/queue/nr_requests; 
 	fi;
+done
 	
 # I/O Schedulers Tweaks
 	
