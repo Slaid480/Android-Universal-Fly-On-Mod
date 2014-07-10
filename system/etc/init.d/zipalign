@@ -51,6 +51,7 @@ for DIR in /data/app ; do
         zipalign -f 4 $APK /cache/$APK
         busybox mount -o rw,remount /system
         cp -f -p /cache/$APK $APK
+		chmod 644 $APK
         busybox rm -f /cache/$APK
         grep "$DIR/$APK" $ZIPALIGNDB > /dev/null || echo $DIR/$APK >> $ZIPALIGNDB
       fi
@@ -75,6 +76,7 @@ for DIR in /system/app ; do
         zipalign -f 4 $APK /cache/$APK
         busybox mount -o rw,remount /system
         cp -f -p /cache/$APK $APK
+		chmod 644 $APK
         busybox rm -f /cache/$APK
         grep "$DIR/$APK" $ZIPALIGNDB > /dev/null || echo $DIR/$APK >> $ZIPALIGNDB
       fi
@@ -97,6 +99,7 @@ for DIR in /system/priv-app ; do
         zipalign -f 4 $APK /cache/$APK
         busybox mount -o rw,remount /system
         cp -f -p /cache/$APK $APK
+		chmod 644 $APK
         busybox rm -f /cache/$APK
         grep "$DIR/$APK" $ZIPALIGNDB > /dev/null || echo $DIR/$APK >> $ZIPALIGNDB
       fi
@@ -119,6 +122,7 @@ for DIR in /system/framework ; do
         zipalign -f 4 $APK /cache/$APK
         busybox mount -o rw,remount /system
         cp -f -p /cache/$APK $APK
+		chmod 644 $APK
         busybox rm -f /cache/$APK
         grep "$DIR/$APK" $ZIPALIGNDB > /dev/null || echo $DIR/$APK >> $ZIPALIGNDB
       fi
