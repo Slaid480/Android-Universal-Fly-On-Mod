@@ -1,0 +1,39 @@
+#!/system/bin/sh
+#============ Copyright (C) 2014 Salah Abouabdallah(Slaid480)===========#
+ 
+#  This program is free software: you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+ 
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+#  GNU General Public License for more details.
+ 
+#  You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ 
+#=======================================================================#
+
+FLY=/data/Fly-On/12DNS.log;
+
+busybox rm -f $FLY
+busybox touch $FLY
+
+if [ -e $FLY ]; then
+	rm $FLY;
+fi;
+
+echo "# Fly-On Mod™ LOGGING ENGINE" | tee -a $FLY
+echo "" | tee -a $FLY
+echo "$( date +"%m-%d-%Y %H:%M:%S" )  executing 95DNS script..." | tee -a $FLY;
+
+dnsproxy2dex -w 127.0.0.1 &
+
+dnsmasqdex -C /system/etc/DNS_Fly-On/dnsmasq.conf
+
+pixelservdex 127.0.0.1 >/dev/null 2>&1
+
+echo "" | tee -a $FLY
+echo "...Tweaking DsnMasq running successfully..." | tee -a $FLY
+echo "" | tee -a $FLY
+echo "$( date +"%m-%d-%Y %H:%M:%S" ) 95DNS Has been Successfully Executed..." | tee -a $FLY
