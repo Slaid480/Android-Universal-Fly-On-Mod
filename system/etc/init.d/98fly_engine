@@ -90,7 +90,7 @@ fi;
 setprop debug.performance.tuning 1;
 setprop video.accelerate.hw 1;
 #Battery Tweaks
-setprop wifi.supplicant_scan_interval 120;
+setprop wifi.supplicant_scan_interval 180;
 pm.sleep_mode=1;
 ro.ril.disable.power.collapse=0;
 #kernel tweaks(Disable error checking)
@@ -100,12 +100,16 @@ setprop net.tcp.buffersize.wifi 4096,87380,256960,4096,16384,256960
 setprop net.tcp.buffersize.edge 4096,87380,256960,4096,16384,256960
 setprop net.tcp.buffersize.umts 4096,87380,256960,4096,16384,256960
 setprop net.tcp.buffersize.gprs 4096,87380,256960,4096,16384,256960
+setprop net.tcp.buffersize.hspa 4096,87380,256960,4096,16384,256960
+setprop net.tcp.buffersize.hsdpa 4096,87380,256960,4096,16384,256960
+setprop net.tcp.buffersize.lte 4096,87380,256960,4096,16384,256960
+setprop net.tcp.buffersize.evdo_b 4096,87380,256960,4096,16384,256960
 setprop net.tcp.buffersize.default 4096,87380,256960,4096,16384,256960
 
 
 
 
-# Disable Gentle Fair Sleepers(Would Improve smoothness)
+# Disable Gentle Fair Sleepers (Would Improve smoothness)
 echo "NO_GENTLE_FAIR_SLEEPERS" > /sys/kernel/debug/sched_features;
 echo "NO_NEW_FAIR_SLEEPERS" > /sys/kernel/debug/sched_features;
 echo "NO_NORMALIZED_SLEEPER" > /sys/kernel/debug/sched_features;
@@ -122,14 +126,18 @@ fi
  mem=`free|grep Mem | awk '{print $2}'`;
 
 if [ "$mem" -lt 512000 ];then
-	sysctl -w vm.dirty_background_ratio=15;
-	sysctl -w vm.dirty_ratio=30;
+	sysctl -w vm.dirty_background_ratio=20;
+	sysctl -w vm.dirty_ratio=35;
 elif [ "$mem" -lt 1024000 ];then
+	sysctl -w vm.dirty_background_ratio=15;
+	sysctl -w vm.dirty_ratio=15;
+elif [ "$mem" -lt 1536000 ];then
 	sysctl -w vm.dirty_background_ratio=10;
-	sysctl -w vm.dirty_ratio=20;
-else 
-	sysctl -w vm.dirty_background_ratio=5;
 	sysctl -w vm.dirty_ratio=10;
+else
+    sysctl -w vm.dirty_background_ratio=5;
+	sysctl -w vm.dirty_ratio=10;
+
 fi;
 
 
@@ -153,7 +161,7 @@ fi
 
 
 # End of fly_engine script
-echo "fly_engine Tweaks applied successfully,Enjoy!!"
+echo "fly_engine Tweaks have been applied successfully, enjoy!!"
 
 
 
