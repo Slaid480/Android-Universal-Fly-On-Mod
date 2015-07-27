@@ -17,7 +17,7 @@
  
 #=======================================================================#
 
-#Interval between ZipAlign runs, in seconds, 2592000=1 Month
+#Interval between 2 Fstrim runs, in seconds, 2592000=1 Month
 RUN_EVERY=2592000
 
 FLY=/data/Fly-On/10fstrim.log

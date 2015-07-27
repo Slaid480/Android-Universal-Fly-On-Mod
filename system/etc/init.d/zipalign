@@ -17,8 +17,8 @@
  
 #=======================================================================#
 
-#Interval between ZipAlign runs, in seconds, 108000=30 hours
-RUN_EVERY=108000
+#Interval between ZipAlign runs, in seconds, 86400=24 hours
+RUN_EVERY=86400
 
 #Zipalign /Data 
 

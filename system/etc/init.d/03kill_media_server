@@ -16,6 +16,9 @@
  
 #=======================================================================#
 
+#Interval between Mediakiller runs, in seconds, 14400=4hours
+RUN_EVERY=14400
+
 FLY=/data/Fly-On/04mediakiller.log
 
 busybox rm -f $FLY
