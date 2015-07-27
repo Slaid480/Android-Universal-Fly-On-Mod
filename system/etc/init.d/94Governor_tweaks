@@ -33,6 +33,7 @@ echo "$( date +"%m-%d-%Y %H:%M:%S" ) Tweaking CPU governor tweaks..." | tee -a $
     #echo "1" > /sys/devices/system/cpu/cpu0/cpufreq/ondemand/io_is_busy;
     #echo "2" > /sys/devices/system/cpu/cpu0/cpufreq/ondemand/sampling_down_factor;
     #echo "30000" > /sys/devices/system/cpu/cpu0/cpufreq/ondemand/sampling_rate;
+	
   fi;
   if [ -e /sys/devices/system/cpu/cpu1/cpufreq/ondemand/up_threshold ]; then
 
@@ -61,6 +62,38 @@ echo "$( date +"%m-%d-%Y %H:%M:%S" ) Tweaking CPU governor tweaks..." | tee -a $
     #echo "30000" > /sys/devices/system/cpu/cpu3/cpufreq/ondemand/sampling_rate;
 
   fi;
+  if [ -e /sys/devices/system/cpu/cpu4/cpufreq/ondemand/up_threshold ]; then
+    echo "70" > /sys/devices/system/cpu/cpu4/cpufreq/ondemand/up_threshold;
+    echo "10" > /sys/devices/system/cpu/cpu4/cpufreq/ondemand/down_differential;
+    #echo "1" > /sys/devices/system/cpu/cpu4/cpufreq/ondemand/io_is_busy;
+    #echo "2" > /sys/devices/system/cpu/cpu4/cpufreq/ondemand/sampling_down_factor;
+    #echo "30000" > /sys/devices/system/cpu/cpu4/cpufreq/ondemand/sampling_rate;
+	
+  fi;
+  if [ -e /sys/devices/system/cpu/cpu5/cpufreq/ondemand/up_threshold ]; then
+    echo "70" > /sys/devices/system/cpu/cpu5/cpufreq/ondemand/up_threshold;
+    echo "10" > /sys/devices/system/cpu/cpu5/cpufreq/ondemand/down_differential;
+    #echo "1" > /sys/devices/system/cpu/cpu5/cpufreq/ondemand/io_is_busy;
+    #echo "2" > /sys/devices/system/cpu/cpu5/cpufreq/ondemand/sampling_down_factor;
+    #echo "30000" > /sys/devices/system/cpu/cpu5/cpufreq/ondemand/sampling_rate;
+	
+  fi;
+  if [ -e /sys/devices/system/cpu/cpu6/cpufreq/ondemand/up_threshold ]; then
+    echo "70" > /sys/devices/system/cpu/cpu6/cpufreq/ondemand/up_threshold;
+    echo "10" > /sys/devices/system/cpu/cpu6/cpufreq/ondemand/down_differential;
+    #echo "1" > /sys/devices/system/cpu/cpu6/cpufreq/ondemand/io_is_busy;
+    #echo "2" > /sys/devices/system/cpu/cpu6/cpufreq/ondemand/sampling_down_factor;
+    #echo "30000" > /sys/devices/system/cpu/cpu6/cpufreq/ondemand/sampling_rate;
+	
+  fi;
+  if [ -e /sys/devices/system/cpu/cpu7/cpufreq/ondemand/up_threshold ]; then
+    echo "70" > /sys/devices/system/cpu/cpu7/cpufreq/ondemand/up_threshold;
+    echo "10" > /sys/devices/system/cpu/cpu7/cpufreq/ondemand/down_differential;
+    #echo "1" > /sys/devices/system/cpu/cpu7/cpufreq/ondemand/io_is_busy;
+    #echo "2" > /sys/devices/system/cpu/cpu7/cpufreq/ondemand/sampling_down_factor;
+    #echo "30000" > /sys/devices/system/cpu/cpu7/cpufreq/ondemand/sampling_rate;
+	
+  fi;
   if [ -e /sys/devices/system/cpu/cpufreq/ondemand/up_threshold ]; then
 
     echo "70" > /sys/devices/system/cpu/cpufreq/ondemand/up_threshold;
@@ -80,6 +113,7 @@ echo "$( date +"%m-%d-%Y %H:%M:%S" ) Tweaking CPU governor tweaks..." | tee -a $
     #echo "1" > /sys/devices/system/cpu/cpu0/cpufreq/ondemandx/io_is_busy;
     #echo "2" > /sys/devices/system/cpu/cpu0/cpufreq/ondemandx/sampling_down_factor;
     #echo "30000" > /sys/devices/system/cpu/cpu0/cpufreq/ondemandx/sampling_rate;
+	
   fi;
   if [ -e /sys/devices/system/cpu/cpu1/cpufreq/ondemandx/up_threshold ]; then
 
@@ -106,6 +140,42 @@ echo "$( date +"%m-%d-%Y %H:%M:%S" ) Tweaking CPU governor tweaks..." | tee -a $
     #echo "1" > /sys/devices/system/cpu/cpu3/cpufreq/ondemandx/io_is_busy;
     #echo "2" > /sys/devices/system/cpu/cpu3/cpufreq/ondemandx/sampling_down_factor;
     #echo "30000" > /sys/devices/system/cpu/cpu3/cpufreq/ondemandx/sampling_rate;
+
+  fi;
+  if [ -e /sys/devices/system/cpu/cpu4/cpufreq/ondemandx/up_threshold ]; then
+
+    echo "70" > /sys/devices/system/cpu/cpu4/cpufreq/ondemandx/up_threshold;
+    echo "10" > /sys/devices/system/cpu/cpu4/cpufreq/ondemandx/down_differential;
+    #echo "1" > /sys/devices/system/cpu/cpu4/cpufreq/ondemandx/io_is_busy;
+    #echo "2" > /sys/devices/system/cpu/cpu4/cpufreq/ondemandx/sampling_down_factor;
+    #echo "30000" > /sys/devices/system/cpu/cpu4/cpufreq/ondemandx/sampling_rate;
+
+  fi;
+  if [ -e /sys/devices/system/cpu/cpu5/cpufreq/ondemandx/up_threshold ]; then
+
+    echo "70" > /sys/devices/system/cpu/cpu5/cpufreq/ondemandx/up_threshold;
+    echo "10" > /sys/devices/system/cpu/cpu5/cpufreq/ondemandx/down_differential;
+    #echo "1" > /sys/devices/system/cpu/cpu5/cpufreq/ondemandx/io_is_busy;
+    #echo "2" > /sys/devices/system/cpu/cpu5/cpufreq/ondemandx/sampling_down_factor;
+    #echo "30000" > /sys/devices/system/cpu/cpu5/cpufreq/ondemandx/sampling_rate;
+
+  fi;
+  if [ -e /sys/devices/system/cpu/cpu6/cpufreq/ondemandx/up_threshold ]; then
+
+    echo "70" > /sys/devices/system/cpu/cpu6/cpufreq/ondemandx/up_threshold;
+    echo "10" > /sys/devices/system/cpu/cpu6/cpufreq/ondemandx/down_differential;
+    #echo "1" > /sys/devices/system/cpu/cpu6/cpufreq/ondemandx/io_is_busy;
+    #echo "2" > /sys/devices/system/cpu/cpu6/cpufreq/ondemandx/sampling_down_factor;
+    #echo "30000" > /sys/devices/system/cpu/cpu6/cpufreq/ondemandx/sampling_rate;
+
+  fi;
+  if [ -e /sys/devices/system/cpu/cpu7/cpufreq/ondemandx/up_threshold ]; then
+
+    echo "70" > /sys/devices/system/cpu/cpu7/cpufreq/ondemandx/up_threshold;
+    echo "10" > /sys/devices/system/cpu/cpu7/cpufreq/ondemandx/down_differential;
+    #echo "1" > /sys/devices/system/cpu/cpu7/cpufreq/ondemandx/io_is_busy;
+    #echo "2" > /sys/devices/system/cpu/cpu7/cpufreq/ondemandx/sampling_down_factor;
+    #echo "30000" > /sys/devices/system/cpu/cpu7/cpufreq/ondemandx/sampling_rate;
 
   fi;
   if [ -e /sys/devices/system/cpu/cpufreq/ondemandx/up_threshold ]; then
@@ -146,6 +216,34 @@ echo "$( date +"%m-%d-%Y %H:%M:%S" ) Tweaking CPU governor tweaks..." | tee -a $
     echo "90" > /sys/devices/system/cpu/cpu3/cpufreq/conservative/up_threshold;
     echo "50" > /sys/devices/system/cpu/cpu3/cpufreq/conservative/down_threshold; 
           echo "100" > /sys/devices/system/cpu/cpu3/cpufreq/conservative/freq_step; 
+
+  fi;
+  if [ -e /sys/devices/system/cpu/cpu4/cpufreq/conservative/up_threshold ]; then
+
+    echo "90" > /sys/devices/system/cpu/cpu4/cpufreq/conservative/up_threshold;
+    echo "50" > /sys/devices/system/cpu/cpu4/cpufreq/conservative/down_threshold; 
+          echo "100" > /sys/devices/system/cpu/cpu4/cpufreq/conservative/freq_step; 
+
+  fi;
+  if [ -e /sys/devices/system/cpu/cpu5/cpufreq/conservative/up_threshold ]; then
+
+    echo "90" > /sys/devices/system/cpu/cpu5/cpufreq/conservative/up_threshold;
+    echo "50" > /sys/devices/system/cpu/cpu5/cpufreq/conservative/down_threshold; 
+          echo "100" > /sys/devices/system/cpu/cpu5/cpufreq/conservative/freq_step; 
+
+  fi;
+  if [ -e /sys/devices/system/cpu/cpu6/cpufreq/conservative/up_threshold ]; then
+
+    echo "90" > /sys/devices/system/cpu/cpu6/cpufreq/conservative/up_threshold;
+    echo "50" > /sys/devices/system/cpu/cpu6/cpufreq/conservative/down_threshold; 
+          echo "100" > /sys/devices/system/cpu/cpu6/cpufreq/conservative/freq_step; 
+
+  fi;
+  if [ -e /sys/devices/system/cpu/cpu7/cpufreq/conservative/up_threshold ]; then
+
+    echo "90" > /sys/devices/system/cpu/cpu7/cpufreq/conservative/up_threshold;
+    echo "50" > /sys/devices/system/cpu/cpu7/cpufreq/conservative/down_threshold; 
+          echo "100" > /sys/devices/system/cpu/cpu7/cpufreq/conservative/freq_step; 
 
   fi;
   if [ -e /sys/devices/system/cpu/cpufreq/conservative/up_threshold ]; then
@@ -208,6 +306,63 @@ echo "$( date +"%m-%d-%Y %H:%M:%S" ) Tweaking CPU governor tweaks..." | tee -a $
     echo "5" > /sys/devices/system/cpu/cpu3/cpufreq/pegasusq/cpu_up_rate;
     echo "20" > /sys/devices/system/cpu/cpu3/cpufreq/pegasusq/cpu_down_rate;
     echo "100000" > /sys/devices/system/cpu/cpu3/cpufreq/pegasusq/freq_for_responsiveness;
+	
+
+
+  fi;
+  if [ -e /sys/devices/system/cpu/cpu4/cpufreq/pegasusq/up_threshold ]; then
+    echo "85" > /sys/devices/system/cpu/cpu4/cpufreq/pegasusq/up_threshold;
+    echo "10" > /sys/devices/system/cpu/cpu4/cpufreq/pegasusq/down_differential;
+    #echo "1" > /sys/devices/system/cpu/cpu4/cpufreq/pegasusq/io_is_busy;
+    echo "1" > /sys/devices/system/cpu/cpu4/cpufreq/pegasusq/sampling_down_factor;
+    echo "20000" > /sys/devices/system/cpu/cpu4/cpufreq/pegasusq/sampling_rate;
+    echo "100" > /sys/devices/system/cpu/cpu4/cpufreq/pegasusq/freq_step;
+    echo "5" > /sys/devices/system/cpu/cpu4/cpufreq/pegasusq/cpu_up_rate;
+    echo "20" > /sys/devices/system/cpu/cpu4/cpufreq/pegasusq/cpu_down_rate;
+    echo "100000" > /sys/devices/system/cpu/cpu4/cpufreq/pegasusq/freq_for_responsiveness;
+	
+
+
+  fi;
+  if [ -e /sys/devices/system/cpu/cpu5/cpufreq/pegasusq/up_threshold ]; then
+    echo "85" > /sys/devices/system/cpu/cpu5/cpufreq/pegasusq/up_threshold;
+    echo "10" > /sys/devices/system/cpu/cpu5/cpufreq/pegasusq/down_differential;
+    #echo "1" > /sys/devices/system/cpu/cpu5/cpufreq/pegasusq/io_is_busy;
+    echo "1" > /sys/devices/system/cpu/cpu5/cpufreq/pegasusq/sampling_down_factor;
+    echo "20000" > /sys/devices/system/cpu/cpu5/cpufreq/pegasusq/sampling_rate;
+    echo "100" > /sys/devices/system/cpu/cpu5/cpufreq/pegasusq/freq_step;
+    echo "5" > /sys/devices/system/cpu/cpu5/cpufreq/pegasusq/cpu_up_rate;
+    echo "20" > /sys/devices/system/cpu/cpu5/cpufreq/pegasusq/cpu_down_rate;
+    echo "100000" > /sys/devices/system/cpu/cpu5/cpufreq/pegasusq/freq_for_responsiveness;
+	
+
+
+  fi;
+  if [ -e /sys/devices/system/cpu/cpu6/cpufreq/pegasusq/up_threshold ]; then
+    echo "85" > /sys/devices/system/cpu/cpu6/cpufreq/pegasusq/up_threshold;
+    echo "10" > /sys/devices/system/cpu/cpu6/cpufreq/pegasusq/down_differential;
+    #echo "1" > /sys/devices/system/cpu/cpu6/cpufreq/pegasusq/io_is_busy;
+    echo "1" > /sys/devices/system/cpu/cpu6/cpufreq/pegasusq/sampling_down_factor;
+    echo "20000" > /sys/devices/system/cpu/cpu6/cpufreq/pegasusq/sampling_rate;
+    echo "100" > /sys/devices/system/cpu/cpu6/cpufreq/pegasusq/freq_step;
+    echo "5" > /sys/devices/system/cpu/cpu6/cpufreq/pegasusq/cpu_up_rate;
+    echo "20" > /sys/devices/system/cpu/cpu6/cpufreq/pegasusq/cpu_down_rate;
+    echo "100000" > /sys/devices/system/cpu/cpu6/cpufreq/pegasusq/freq_for_responsiveness;
+	
+
+
+  fi;
+  if [ -e /sys/devices/system/cpu/cpu7/cpufreq/pegasusq/up_threshold ]; then
+    echo "85" > /sys/devices/system/cpu/cpu7/cpufreq/pegasusq/up_threshold;
+    echo "10" > /sys/devices/system/cpu/cpu7/cpufreq/pegasusq/down_differential;
+    #echo "1" > /sys/devices/system/cpu/cpu7/cpufreq/pegasusq/io_is_busy;
+    echo "1" > /sys/devices/system/cpu/cpu7/cpufreq/pegasusq/sampling_down_factor;
+    echo "20000" > /sys/devices/system/cpu/cpu7/cpufreq/pegasusq/sampling_rate;
+    echo "100" > /sys/devices/system/cpu/cpu7/cpufreq/pegasusq/freq_step;
+    echo "5" > /sys/devices/system/cpu/cpu7/cpufreq/pegasusq/cpu_up_rate;
+    echo "20" > /sys/devices/system/cpu/cpu7/cpufreq/pegasusq/cpu_down_rate;
+    echo "100000" > /sys/devices/system/cpu/cpu7/cpufreq/pegasusq/freq_for_responsiveness;
+	
 
 
   fi;
@@ -269,6 +424,46 @@ echo "$( date +"%m-%d-%Y %H:%M:%S" ) Tweaking CPU governor tweaks..." | tee -a $
     echo "20000" > /sys/devices/system/cpu/cpu3/cpufreq/hotplug/sampling_rate;
 
   fi;
+  if [ -e /sys/devices/system/cpu/cpu4/cpufreq/hotplug/up_threshold ]; then
+    echo "85" > /sys/devices/system/cpu/cpu4/cpufreq/hotplug/up_threshold;
+    echo "40" > /sys/devices/system/cpu/cpu4/cpufreq/hotplug/down_threshold;
+    echo "5" > /sys/devices/system/cpu/cpu4/cpufreq/hotplug/hotplug_in_sampling_periods;
+    echo "20" > /sys/devices/system/cpu/cpu4/cpufreq/hotplug/hotplug_out_sampling_periods;
+    echo "10" > /sys/devices/system/cpu/cpu4/cpufreq/hotplug/down_differential;
+    #echo "1" > /sys/devices/system/cpu/cpu4/cpufreq/hotplug/io_is_busy;
+    echo "20000" > /sys/devices/system/cpu/cpu4/cpufreq/hotplug/sampling_rate;
+
+  fi;
+  if [ -e /sys/devices/system/cpu/cpu5/cpufreq/hotplug/up_threshold ]; then
+    echo "85" > /sys/devices/system/cpu/cpu5/cpufreq/hotplug/up_threshold;
+    echo "40" > /sys/devices/system/cpu/cpu5/cpufreq/hotplug/down_threshold;
+    echo "5" > /sys/devices/system/cpu/cpu5/cpufreq/hotplug/hotplug_in_sampling_periods;
+    echo "20" > /sys/devices/system/cpu/cpu5/cpufreq/hotplug/hotplug_out_sampling_periods;
+    echo "10" > /sys/devices/system/cpu/cpu5/cpufreq/hotplug/down_differential;
+    #echo "1" > /sys/devices/system/cpu/cpu5/cpufreq/hotplug/io_is_busy;
+    echo "20000" > /sys/devices/system/cpu/cpu5/cpufreq/hotplug/sampling_rate;
+
+  fi;
+  if [ -e /sys/devices/system/cpu/cpu6/cpufreq/hotplug/up_threshold ]; then
+    echo "85" > /sys/devices/system/cpu/cpu6/cpufreq/hotplug/up_threshold;
+    echo "40" > /sys/devices/system/cpu/cpu6/cpufreq/hotplug/down_threshold;
+    echo "5" > /sys/devices/system/cpu/cpu6/cpufreq/hotplug/hotplug_in_sampling_periods;
+    echo "20" > /sys/devices/system/cpu/cpu6/cpufreq/hotplug/hotplug_out_sampling_periods;
+    echo "10" > /sys/devices/system/cpu/cpu6/cpufreq/hotplug/down_differential;
+    #echo "1" > /sys/devices/system/cpu/cpu6/cpufreq/hotplug/io_is_busy;
+    echo "20000" > /sys/devices/system/cpu/cpu6/cpufreq/hotplug/sampling_rate;
+
+  fi;
+  if [ -e /sys/devices/system/cpu/cpu7/cpufreq/hotplug/up_threshold ]; then
+    echo "85" > /sys/devices/system/cpu/cpu7/cpufreq/hotplug/up_threshold;
+    echo "40" > /sys/devices/system/cpu/cpu7/cpufreq/hotplug/down_threshold;
+    echo "5" > /sys/devices/system/cpu/cpu7/cpufreq/hotplug/hotplug_in_sampling_periods;
+    echo "20" > /sys/devices/system/cpu/cpu7/cpufreq/hotplug/hotplug_out_sampling_periods;
+    echo "10" > /sys/devices/system/cpu/cpu7/cpufreq/hotplug/down_differential;
+    #echo "1" > /sys/devices/system/cpu/cpu7/cpufreq/hotplug/io_is_busy;
+    echo "20000" > /sys/devices/system/cpu/cpu7/cpufreq/hotplug/sampling_rate;
+
+  fi;
   if [ -e /sys/devices/system/cpu/cpufreq/hotplug/up_threshold ]; then
 
     echo "85" > /sys/devices/system/cpu/cpufreq/hotplug/up_threshold;
@@ -320,6 +515,46 @@ echo "$( date +"%m-%d-%Y %H:%M:%S" ) Tweaking CPU governor tweaks..." | tee -a $
 		echo "10" > /sys/devices/system/cpu/cpu3/cpufreq/abyssplug/down_differential;
 		#echo "1" > /sys/devices/system/cpu/cpu3/cpufreq/abyssplug/io_is_busy;
 		echo "20000" > /sys/devices/system/cpu/cpu3/cpufreq/abyssplug/sampling_rate;
+		
+	fi;
+	if [ -e /sys/devices/system/cpu/cpu4/cpufreq/abyssplug/up_threshold ]; then
+		echo "85" > /sys/devices/system/cpu/cpu4/cpufreq/abyssplug/up_threshold;
+		echo "40" > /sys/devices/system/cpu/cpu4/cpufreq/abyssplug/down_threshold;
+		echo "5" > /sys/devices/system/cpu/cpu4/cpufreq/abyssplug/hotplug_in_sampling_periods;
+		echo "20" > /sys/devices/system/cpu/cpu4/cpufreq/abyssplug/hotplug_out_sampling_periods;
+		echo "10" > /sys/devices/system/cpu/cpu4/cpufreq/abyssplug/down_differential;
+		#echo "1" > /sys/devices/system/cpu/cpu4/cpufreq/abyssplug/io_is_busy;
+		echo "20000" > /sys/devices/system/cpu/cpu4/cpufreq/abyssplug/sampling_rate;
+		
+	fi;
+	if [ -e /sys/devices/system/cpu/cpu5/cpufreq/abyssplug/up_threshold ]; then
+		echo "85" > /sys/devices/system/cpu/cpu5/cpufreq/abyssplug/up_threshold;
+		echo "40" > /sys/devices/system/cpu/cpu5/cpufreq/abyssplug/down_threshold;
+		echo "5" > /sys/devices/system/cpu/cpu5/cpufreq/abyssplug/hotplug_in_sampling_periods;
+		echo "20" > /sys/devices/system/cpu/cpu5/cpufreq/abyssplug/hotplug_out_sampling_periods;
+		echo "10" > /sys/devices/system/cpu/cpu5/cpufreq/abyssplug/down_differential;
+		#echo "1" > /sys/devices/system/cpu/cpu5/cpufreq/abyssplug/io_is_busy;
+		echo "20000" > /sys/devices/system/cpu/cpu5/cpufreq/abyssplug/sampling_rate;
+		
+	fi;
+	if [ -e /sys/devices/system/cpu/cpu6/cpufreq/abyssplug/up_threshold ]; then
+		echo "85" > /sys/devices/system/cpu/cpu6/cpufreq/abyssplug/up_threshold;
+		echo "40" > /sys/devices/system/cpu/cpu6/cpufreq/abyssplug/down_threshold;
+		echo "5" > /sys/devices/system/cpu/cpu6/cpufreq/abyssplug/hotplug_in_sampling_periods;
+		echo "20" > /sys/devices/system/cpu/cpu6/cpufreq/abyssplug/hotplug_out_sampling_periods;
+		echo "10" > /sys/devices/system/cpu/cpu6/cpufreq/abyssplug/down_differential;
+		#echo "1" > /sys/devices/system/cpu/cpu6/cpufreq/abyssplug/io_is_busy;
+		echo "20000" > /sys/devices/system/cpu/cpu6/cpufreq/abyssplug/sampling_rate;
+		
+	fi;
+	if [ -e /sys/devices/system/cpu/cpu7/cpufreq/abyssplug/up_threshold ]; then
+		echo "85" > /sys/devices/system/cpu/cpu7/cpufreq/abyssplug/up_threshold;
+		echo "40" > /sys/devices/system/cpu/cpu7/cpufreq/abyssplug/down_threshold;
+		echo "5" > /sys/devices/system/cpu/cpu7/cpufreq/abyssplug/hotplug_in_sampling_periods;
+		echo "20" > /sys/devices/system/cpu/cpu7/cpufreq/abyssplug/hotplug_out_sampling_periods;
+		echo "10" > /sys/devices/system/cpu/cpu7/cpufreq/abyssplug/down_differential;
+		#echo "1" > /sys/devices/system/cpu/cpu7/cpufreq/abyssplug/io_is_busy;
+		echo "20000" > /sys/devices/system/cpu/cpu7/cpufreq/abyssplug/sampling_rate;
 		
 	fi;
 	if [ -e /sys/devices/system/cpu/cpufreq/abyssplug/up_threshold ]; then
