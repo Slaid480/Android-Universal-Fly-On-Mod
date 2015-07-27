@@ -4,23 +4,9 @@
 
 #============ Copyright (C) 2015 Salah Abouabdallah(Slaid480)===========#
  
-#  This program is free software: you can redistribute it and/or modify
-#  it under the terms of the GNU General Public License as published by
-#  the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
- 
-#  This program is distributed in the hope that it will be useful,
-#  but WITHOUT ANY WARRANTY; without even the implied warranty of
-#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-#  GNU General Public License for more details.
- 
-#  You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ see <http://www.gnu.org/licenses/>.
  
 #=======================================================================#
-
-# Frequent inserts, updates, and deletes can cause the database file to become fragmented - where data for a single table or index is scattered around the database file.
-# Running VACUUM ensures that each table and index is largely stored contiguously within the database file.
-# In some cases, VACUUM may also reduce the number of partially filled pages in the database, reducing the size of the database file further.
-# SQLite3 binary in /system/xbin is required!
 
 
 FLY=/data/Fly-On/07sqlite_optimize.log
