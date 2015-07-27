@@ -32,21 +32,6 @@ echo "" | tee -a $FLY
 echo "$( date +"%m-%d-%Y %H:%M:%S" )  applying fly_engine tweaks..." | tee -a $FLY;
 
 
-# Tweaking processes at wake
-
-#    renice -1 `pidof com.android.phone`;   
-#    renice -1 `pidof com.android.mms`; 
-#    renice -1 `pidof com.swype.android.inputmethod`; 
-#    renice -1 `pidof com.sec.android.app.controlpanel`; 
-#    renice -1 `pidof com.android.systemui`; 
-#    renice -1 `pidof com.android.settings`; 
-#    renice -1 `pidof com.android.vending`; 
-#    renice -1 `pidof com.sec.android.app.camera`; 
-#    renice -1 `pidof android.process.acore`;
-#    renice -1 `pidof kondemand/0`;
-#    renice -1 `pidof ksmartass_up/0`;
-
-
 
 # Network speed Tweaks
 
