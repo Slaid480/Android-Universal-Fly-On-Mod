@@ -32,15 +32,14 @@ busybox rm -f /data/mlog/*
 busybox rm -f /data/tombstones/*
 busybox rm -f /data/backup/pending/*
 busybox rm -f /data/system/dropbox/*
+busybox rm -rf /sdcard/LOST.DIR
+busybox rm -f /cache/recovery/*
 chmod 700 /data/system/dropbox
 busybox rm -f /data/system/usagestats/*
 busybox chmod 700 /data/system/usagestats
 
-export sampling_rate=10000
-export up_threshold=80
 
-
-echo "memory cleaner--------[OK]" | tee -a $FLY;
+echo "Cleaning done." | tee -a $FLY;
 
 if [ -e /data/anr/*.* ]; then
   echo "-anr not cleaned" | tee -a $FLY; else
