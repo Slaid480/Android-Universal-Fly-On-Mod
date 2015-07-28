@@ -42,5 +42,17 @@ else
     echo "6144,11520,16540,22400,28165,41418" > /sys/module/lowmemorykiller/parameters/minfree;  
 fi;
 
+if [ -e /sys/block/zram0/comp_algorithm ]; then
+busybox echo "lz4" > /sys/block/zram0/comp_algorithm
+fi;
+
+if [ -e /sys/block/zram0 ]; then
+busybox echo $((1024*1024*96)) > /sys/block/zram0/disksize
+busybox sysctl -e -w vm.swappiness=10
+busybox mkswap /dev/block/zram0
+busybox swapon /dev/block/zram0
+fi;
+
+
 echo "" | tee -a $FLY
 echo "$( date +"%m-%d-%Y %H:%M:%S" ) RAM manager values successfully applied" | tee -a $FLY;
