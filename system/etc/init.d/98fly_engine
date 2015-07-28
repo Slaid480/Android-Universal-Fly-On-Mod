@@ -149,7 +149,8 @@ if [ -e /proc/sys/kernel/panic ]
 then 
  echo 0 > /proc/sys/kernel/panic
 fi
-
+busybox sysctl -e -w kernel.random.read_wakeup_threshold=128
+busybox sysctl -e -w kernel.random.write_wakeup_threshold=1376
 
 # End of fly_engine script
 echo "fly_engine Tweaks have been applied successfully, enjoy!!"
