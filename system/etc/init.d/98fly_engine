@@ -78,6 +78,8 @@ fi;
 # Build.prop Tweaks
 
 #Graphics Tweaks and improvments
+setprop hw3d.force 1
+setprop hw2d.force 1
 setprop debug.performance.tuning 1;
 setprop video.accelerate.hw 1;
 #Battery Tweaks
