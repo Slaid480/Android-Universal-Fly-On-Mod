@@ -102,16 +102,27 @@ setprop net.tcp.buffersize.default 4096,87380,256960,4096,16384,256960
 
 
 
-# Disable Gentle Fair Sleepers (Would Improve smoothness)
+# Disable Sleepers (Would Improve smoothness)
 echo "NO_GENTLE_FAIR_SLEEPERS" > /sys/kernel/debug/sched_features;
 echo "NO_NEW_FAIR_SLEEPERS" > /sys/kernel/debug/sched_features;
 echo "NO_NORMALIZED_SLEEPER" > /sys/kernel/debug/sched_features;
+echo "NO_ARCH_POWER" >> /sys/kernel/debug/sched_features
+echo "NO_GENTLE_FAIR_SLEEPERS" >> /sys/kernel/debug/sched_features
+echo "NO_LB_BIAS" >> /sys/kernel/debug/sched_features
+echo "NO_NEXT_BUDDY" >> /sys/kernel/debug/sched_features
+echo "NO_START_DEBIT" >> /sys/kernel/debug/sched_features
+echo "NO_AFFINE_WAKEUPS" >> /sys/kernel/debug/sched_features
+echo "NO_LAST_BUDDY" >> /sys/kernel/debug/sched_features
+echo "NO_CACHE_HOT_BUDDY" >> /sys/kernel/debug/sched_features
+echo "NO_HRTICK" >> /sys/kernel/debug/sched_features
+echo "NO_DOUBLE_TICK" >> /sys/kernel/debug/sched_features
+echo "NO_OWNER_SPIN" >> /sys/kernel/debug/sched_features
+echo "NO_NONTASK_POWER" >> /sys/kernel/debug/sched_features
+echo "NO_TTWU_QUEUE" >> /sys/kernel/debug/sched_features
+echo "NO_FORCE_SD_OVERLAP" >> /sys/kernel/debug/sched_features
+echo "NO_RT_RUNTIME_SHARE" >> /sys/kernel/debug/sched_features
+echo "NO_LB_MIN" >> /sys/kernel/debug/sched_features
 
-#disables normalized sleeper
-if [ -e /sys/kernel/debug/sched_features ]
-then
- echo NO_NORMALIZED_SLEEPER > /sys/kernel/debug/sched_features
-fi
 
 
  #sysctl -w kernel.msgmni=1024;

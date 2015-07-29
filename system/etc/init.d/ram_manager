@@ -42,6 +42,8 @@ else
     echo "6144,11520,16540,22400,28165,41418" > /sys/module/lowmemorykiller/parameters/minfree;  
 fi;
 
+# ZRAM tweak
+
 if [ -e /sys/block/zram0/comp_algorithm ]; then
 busybox echo "lz4" > /sys/block/zram0/comp_algorithm
 fi;
