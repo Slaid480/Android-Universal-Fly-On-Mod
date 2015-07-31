@@ -1,3 +1,6 @@
 <b><#selectbg_g>Codename: Fly-On</#></b>
 <*><b>V5.0_Alpha6</b></*>
-<*> Added AROMA SUPPORT</*>
+<*> Added AROMA installer support</*>
+<*> Updated Entropy binaries.</*>
+<*> Updated zipalign binary.</*>
+
