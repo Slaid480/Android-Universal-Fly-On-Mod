@@ -47,16 +47,6 @@ do
 	fi;
 done
 	
-# I/O Schedulers Tweaks
-	
-	if [ -e $i/queue/iosched/fifo_batch ];
-	then
-		echo 1 > $i/queue/iosched/fifo_batch;
-	fi;
-	if [ -e $i/queue/iosched/writes_starved ];
-	then
-		echo 1 > $i/queue/iosched/writes_starved;
-	fi;
 	
 #  Tweak readahead; 
 	if [ -e $i/queue/read_ahead_kb ];
