@@ -55,6 +55,21 @@ busybox mkswap /dev/block/zram0
 busybox swapon /dev/block/zram0
 fi;
 
+# Kernel samepage merging tweaks
+
+mount -o remount,rw /
+mount -o remount,rw rootfs
+mount -o remount,rw /system
+busybox mount -o remount,rw /
+busybox mount -o remount,rw rootfs
+busybox mount -o remount,rw /system
+
+chmod 644 /sys/kernel/mm/ksm/*
+
+echo "1" > /sys/kernel/mm/ksm/run
+echo "512" > /sys/kernel/mm/ksm/pages_to_scan
+echo "1024" > /sys/kernel/mm/ksm/sleep_millisecs
+
 
 echo "" | tee -a $FLY
-echo "$( date +"%m-%d-%Y %H:%M:%S" ) RAM manager values successfully applied" | tee -a $FLY;
+echo "$( date +"%m-%d-%Y %H:%M:%S" ) RAM manager tweaks successfully applied" | tee -a $FLY;
