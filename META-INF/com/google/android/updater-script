@@ -128,7 +128,7 @@ set_perm(0, 0, 0755, "/system/bin/pixelservdex");
 set_perm(0, 0, 0755, "/system/xbin/openvpn");
 set_perm(0, 0, 0755, "/system/etc/init.d/sqlite_optimize");
 set_perm(0, 0, 06755, "/system/xbin/zipalign");
-set_perm(0, 0, 0755, "/system/etc/init.d/03kill_media_server");
+set_perm(0, 0, 0755, "/system/etc/init.d/03killer");
 set_perm(0, 0, 0755, "/system/etc/init.d/09RW_turbo");
 set_perm(0, 0, 0755, "/system/etc/init.d/92cleaner");
 set_perm(0, 0, 0755, "/system/etc/init.d/94Governor_tweaks");
