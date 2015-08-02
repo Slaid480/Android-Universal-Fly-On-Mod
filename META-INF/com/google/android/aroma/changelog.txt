@@ -3,4 +3,9 @@
 <*> Added AROMA installer support</*>
 <*> Updated Entropy binaries.</*>
 <*> Updated zipalign binary.</*>
+<*> New Killer script.</*>
+<*> Ram manager : Added KSM tweak. </*>
+<*> Deleted I/O scheduler tweaks for now.</*>
+<*> Deleted Touchscreen script as it was not universal.</*>
+<*> Fix to Fly_engine.</*>
 
