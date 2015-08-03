@@ -20,5 +20,6 @@ echo "fstrim started at $( date +"%m-%d-%Y %H:%M:%S" )" | tee -a $FLY;
 fstrim -v /cache | tee -a $FLY;
 fstrim -v /data | tee -a $FLY;
 fstrim -v /system | tee -a $FLY
+fstrim -v /preload | tee -a $FLY
 
 echo "fstrim finished at $( date +"%m-%d-%Y %H:%M:%S" )" | tee -a $FLY;
