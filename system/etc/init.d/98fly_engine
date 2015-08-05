@@ -98,7 +98,8 @@ setprop net.tcp.buffersize.hsdpa 4096,87380,256960,4096,16384,256960
 setprop net.tcp.buffersize.lte 4096,87380,256960,4096,16384,256960
 setprop net.tcp.buffersize.evdo_b 4096,87380,256960,4096,16384,256960
 setprop net.tcp.buffersize.default 4096,87380,256960,4096,16384,256960
-
+#Lock launcher in memory
+setprop ro.HOME_APP_ADJ=1
 
 
 
