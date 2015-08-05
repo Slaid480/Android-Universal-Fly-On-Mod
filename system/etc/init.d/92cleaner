@@ -34,6 +34,7 @@ busybox rm -f /data/backup/pending/*
 busybox rm -f /data/system/dropbox/*
 busybox rm -rf /sdcard/LOST.DIR
 busybox rm -f /cache/recovery/*
+busybox rm -f /dev/log/main/*
 chmod 700 /data/system/dropbox
 busybox rm -f /data/system/usagestats/*
 busybox chmod 700 /data/system/usagestats
