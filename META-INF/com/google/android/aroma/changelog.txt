@@ -8,4 +8,9 @@
 <*> Deleted I/O scheduler tweaks for now.</*>
 <*> Deleted Touchscreen script as it was not universal.</*>
 <*> Fix to Fly_engine.</*>
-
+<*><b>V5.0_Alpha7</b></*>
+<*> Fix Entropy engine binary issue.</*>
+<*> New fstrim binary.</*>
+<*> Fstrim : Trim /preload too.</*>
+<*> Misc cleaner addition.</*>
+<*> Fly engine : Lock launcher in memory.</*>
