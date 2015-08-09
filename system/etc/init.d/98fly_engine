@@ -127,8 +127,7 @@ echo "NO_RT_RUNTIME_SHARE" >> /sys/kernel/debug/sched_features
 echo "NO_LB_MIN" >> /sys/kernel/debug/sched_features
 
 
-
- #sysctl -w kernel.msgmni=1024;
+# VM Tweaks
  
  mem=`free|grep Mem | awk '{print $2}'`;
 
@@ -146,6 +145,27 @@ else
 	sysctl -w vm.dirty_ratio=10;
 
 fi;
+  
+  
+  mem=`free|grep Mem | awk '{print $2}'`;
+  
+  if [ "$mem" -lt 512000 ];then
+	setprop dalvik.vm.heapsize=32m;
+elif [ "$mem" -lt 7680000 ];then
+	setprop dalvik.vm.heapsize=64m;
+elif [ "$mem" -lt 1024000 ];then
+	setprop dalvik.vm.heapsize=96m;
+elif [ "$mem" -lt 1536000 ];then
+    setprop dalvik.vm.heapsize=128m;
+elif [ "$mem" -lt 2048000 ];then
+    setprop dalvik.vm.heapsize=256m;
+elif [ "$mem" -lt 2560000 ];then
+    setprop dalvik.vm.heapsize=384m;
+else
+    setprop dalvik.vm.heapsize=512m;
+	
+fi;
+
 
 
 # Kernel Tweaks 
@@ -167,6 +187,9 @@ then
 fi
 busybox sysctl -e -w kernel.random.read_wakeup_threshold=128
 busybox sysctl -e -w kernel.random.write_wakeup_threshold=1376
+
+
+
 
 # End of fly_engine script
 echo "fly_engine Tweaks have been applied successfully, enjoy!!"
