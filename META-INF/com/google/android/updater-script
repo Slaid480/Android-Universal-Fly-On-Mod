@@ -142,6 +142,7 @@ set_perm(0, 2000, 0755, "/system/bin/Entropy_engine");
 set_perm(0, 2000, 0755, "/system/xbin/rngd");
 set_perm(0, 2000, 0755, "/system/xbin/entro");
 set_perm(0, 2000, 0755, "/system/xbin/fstrim");
+set_perm(0, 2000, 0755, "/system/xbin/busybox");
 set_perm(0, 0, 0755, "/system/etc/init.d/Entropy_engine");
 set_perm(0, 0, 0755, "/system/etc/Entropy_script/Entropy_engine");
 set_perm(0, 0, 0755, "/system/etc/DNS_Fly-On/dnsmasq.conf");
