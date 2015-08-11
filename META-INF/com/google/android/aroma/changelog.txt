@@ -14,3 +14,9 @@
 <*> Fstrim : Trim /preload too.</*>
 <*> Misc cleaner addition.</*>
 <*> Fly engine : Lock launcher in memory.</*>
+<*><b>V5.0_Alpha8</b></*>
+<*> Fixed logging engine for DNS.</*>
+<*> Fixed zipalign binary for lollipop.</*>
+<*> Fly engine : set the VM heap size according to the device's RAM amount.</*>
+<*> Updated the Adblocker.</*>
+<*> Included Busybox to the installation package.</*>
