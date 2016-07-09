@@ -1,0 +1,57 @@
+#!/system/bin/sh
+# I/O Tweaks For Fly-On Mod™ by Slaid480!
+
+#============ Copyright (C) 2015 Salah Abouabdallah(Slaid480)===========#
+ 
+ see <http://www.gnu.org/licenses/>.
+ 
+#=======================================================================#
+
+mount -o remount,rw /
+mount -o remount,rw rootfs
+mount -o remount,rw /system
+busybox mount -o remount,rw /
+busybox mount -o remount,rw rootfs
+busybox mount -o remount,rw /system
+
+FLY=/data/Fly-On/25IO.log
+
+busybox rm -f $FLY
+busybox touch $FLY
+
+echo "# Fly-On Mod™ LOGGING ENGINE" | tee -a $FLY
+echo "" | tee -a $FLY
+echo "$( date +"%m-%d-%Y %H:%M:%S" )  Enabling I/O Tweaks please wait..." | tee -a $FLY;
+
+
+path=`busybox ls -d /sys/block/* 2>/dev/null`;
+for S in $path;
+do
+	if [ -e $S/queue/rotational ]; then
+		busybox echo "0" > $S/queue/rotational
+	fi
+	if [ -e $S/queue/iostats ]; then
+		busybox echo "0" > $S/queue/iostats
+	fi
+	if [ -e $S/queue/nr_requests ]; then
+		busybox echo "512" > $S/queue/nr_requests
+	fi
+	if [ -e $S/queue/nomerges ]; then
+		busybox echo "0" > $S/queue/nomerges
+	fi
+done
+
+
+for L in $(busybox mount | grep relatime | cut -d " " -f3);
+do
+busybox mount -o noatime,remount $L
+done
+
+for M in $(busybox mount | grep ext4 | cut -d " " -f3);
+do
+busybox mount -o noatime,remount,rw,discard,barrier=0,commit=60,noauto_da_alloc,delalloc $M
+done
+
+  
+echo "" | tee -a $FLY
+echo "$( date +"%m-%d-%Y %H:%M:%S" ) I/O Tweaks Enabled, enjoy !" | tee -a $FLY;
