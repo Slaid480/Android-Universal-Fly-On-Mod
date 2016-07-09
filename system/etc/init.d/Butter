@@ -1,0 +1,41 @@
+#!/system/bin/sh
+# Butter Mode For Fly-On Mod App by Slaid480!
+
+#============ Copyright (C) 2015 Salah Abouabdallah(Slaid480)===========#
+ 
+ see <http://www.gnu.org/licenses/>.
+ 
+#=======================================================================#
+
+FLY=/data/Fly-On/24Butter.log
+
+busybox rm -f $FLY
+busybox touch $FLY
+
+echo "# Fly-On Mod™ LOGGING ENGINE" | tee -a $FLY
+echo "" | tee -a $FLY
+echo "$( date +"%m-%d-%Y %H:%M:%S" ) Enabling Butter mode, please wait..." | tee -a $FLY;
+
+
+setprop persist.service.lgospd.enable 0
+setprop persist.service.pcsync.enable 0
+setprop persist.sys.scrollingcache 3
+setprop touch.size.scale 32.0368
+setprop touch.size.bias -5.1253
+setprop touch.pressure.scale 0.0125
+setprop touch.orientation.calibration none
+setprop windowsmgr.max_events_per_sec 90
+setprop ro.max.fling_velocity 12000
+setprop ro.min.fling_velocity 8000
+setprop touch.deviceType touchScreen
+setprop touch.orientationAware 1
+setprop touch.size.calibration diameter
+setprop touch.size.isSummed 0
+setprop touch.pressure.calibration amplitude
+setprop touch.deviceType touchScreen
+setprop touch.orientationAware 1
+
+
+
+echo "" | tee -a $FLY
+echo "$( date +"%m-%d-%Y %H:%M:%S" ) Butter Mode is Enabled, enjoy !" | tee -a $FLY;
